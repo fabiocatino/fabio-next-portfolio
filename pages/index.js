@@ -36,9 +36,9 @@ export default function Home() {
 						Developer.
 					</p>
 
-					<div className='relative h-52 w-52 md:h-[300px] md:w-[300px] bg-custom-green'>
+					<div className='relative h-52 w-52 md:h-[300px] md:w-[300px] mix-blend-screen   filter brightness-50 hover:brightness-100 bg-custom-green'>
 						<Image
-							className='hover:scale-105 hover:opacity-100 opacity-50 transition duration-300 ease-in-out'
+							className='hover:scale-105 hover:opacity-100 opacity-50 transition duration-300 ease-in-out '
 							layout='fill'
 							src='/linkpic.png'
 							objectFit='cover'

@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
 
 			<Header />
 
-			<main className='flex flex-col justify-center px-[25px] min-h-screen md:px-[150px]'>
+			<main className='flex flex-col justify-center px-[25px] min-h-screen lg:px-[150px]'>
 				{children}
 			</main>
 
