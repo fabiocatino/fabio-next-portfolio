@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 const Layout = ({ children }) => {
 	return (
-		<div className='bg-navy  min-h-screen'>
+		<div className='bg-navy min-h-screen'>
 			<Head>
 				<title>Create Next App</title>
 				<link rel='icon' href='/favicon.ico' />
@@ -15,6 +15,8 @@ const Layout = ({ children }) => {
 			<main className='flex flex-col justify-center px-[25px] min-h-screen md:px-[150px]'>
 				{children}
 			</main>
+
+            <footer className='h-72'></footer>
 		</div>
 	);
 };

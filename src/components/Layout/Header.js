@@ -1,9 +1,9 @@
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { MenuIcon } from '@heroicons/react/outline';
-
 const Header = () => {
 	const MenuHandler = () => {};
-    
+
 	return (
 		<div className='h-[100px] bg-navy-header flex items-center px-[25px] sm:px-[50px]'>
 			{/* LEFT SIDE */}
@@ -20,22 +20,23 @@ const Header = () => {
 					<span className='text-custom-green'>01.</span>
 					<p className='navP'>About</p>
 				</button>
-				<button className='navBtn'>
+				{/* <button className='navBtn'>
 					<span className='text-custom-green'>02.</span>
 					<p className='navP'>Experience</p>
-				</button>
+				</button> */}
 				<button className='navBtn'>
-					<span className='text-custom-green'>03.</span>
+					<span className='text-custom-green'>02.</span>
 					<p className='navP'>Work</p>
 				</button>
 				<button className='navBtn'>
-					<span className='text-custom-green'>04.</span>
+					<span className='text-custom-green'>03.</span>
 					<p className='navP'>Contact</p>
 				</button>
 			</div>
-			<MenuIcon
+			<FontAwesomeIcon
 				onClick={MenuHandler}
 				className='md:hidden h-10 w-10 text-custom-green absolute right-5 cursor-pointer'
+				icon={faBars}
 			/>
 
 			{/* RIGHT SIDE */}

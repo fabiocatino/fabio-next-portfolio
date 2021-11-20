@@ -14,6 +14,7 @@ module.exports = {
 					dark: '#020c1b',
 					lightest_navy: '#233554',
 					header: 'rgba(10, 25, 47, 0.85)',
+					shadow: 'rgba(2,12,27,0.7)',
 				},
 				slate: {
 					light: '#a8b2d1',
