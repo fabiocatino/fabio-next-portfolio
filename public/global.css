@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	.navBtn {
+		@apply flex space-x-2 hover:text-custom-green hover:scale-105;
+	}
+	.navP {
+		@apply text-slate-lightest hover:text-custom-green;
+	}
+}
