@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
 				{children}
 			</main>
 
-			<footer className=''></footer>
+			<footer className='h-48'></footer>
 		</div>
 	);
 };

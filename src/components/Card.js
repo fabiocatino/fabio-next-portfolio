@@ -102,10 +102,6 @@ const Card = () => {
 							</a>
 						</div>
 					</div>
-
-					{/* SMALL SCREEN SECTION */}
-
-					<div className='h-[645px] w-full'></div>
 				</div>
 			</Transition>
 		</div>
