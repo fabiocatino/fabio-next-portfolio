@@ -13,16 +13,18 @@ const Card = () => {
 	return (
 		<div ref={setElement}>
 			<Transition show={isVisible}>
-				<div className='grid sm:grid-cols-12 gap-10'>
+				<div className='grid sm:grid-cols-12 gap-10 min-w-screen'>
 					{/* IMAGE/LEFT SECTION */}
-
+					{/* enter='transition opacity-0 duration-1000 ease-in-out'
+				enterFrom='transform -translate-y-5 transition opacity-0  duration-1000 ease-in-out'
+				enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out' */}
 					<Transition.Child
 						as='a'
 						href='/'
 						target='_blank'
 						rel='noreferrer'
 						enter='transition opacity-0 duration-1000 ease-in-out'
-						enterFrom='transform translate-y-2000 transition  duration-1000 ease-in-out'
+						enterFrom='transform -translate-y-5 sm:translate-y-2000 transition  duration-1000 ease-in-out'
 						enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
 						className='h-[362px] min-w[200px] z-[1] border-1 border-black shadow-xl col-end-[-1]
 						md:col-end-[9] row-span-full mix-blend-screen md:bg-custom-green 
@@ -41,7 +43,7 @@ const Card = () => {
 
 					<div
 						className='row-start-1 row-end-[-1] col-start-1 md:col-start-5 col-end-[-1] 
-							xl:col-start-6 z-10 space-y-5 sm:text-left md:text-right p-5 sm:p-14 md:p-0 animate-bounce-in'
+							xl:col-start-6 z-10 space-y-5 sm:text-left md:text-right p-5 sm:p-14 md:p-0'
 					>
 						{/* TEXT TOP RIGHT */}
 						<h1 className='text-custom-green md:m-[10px] font-semibold font-mono'>
@@ -57,8 +59,8 @@ const Card = () => {
 						</a>
 						{/* MAIN CARD */}
 						<Transition.Child
-							enter='transform opacity-0 transition duration-1000 ease-in-out'
-							enterFrom='transform opacity-1 translate-x-2000  duration-1000 ease-in-out'
+							enter='transform transition duration-1000 ease-in-out'
+							enterFrom='transform opacity-1  sm:translate-x-2000  duration-1000 ease-in-out'
 							enterTo='transform opacity-1 translate-x-0 duration-1000 ease-in-out'
 						>
 							<div className='xl:min-h-[122px]  md:p-[25px] sm:bg-transparent md:bg-navy-light z-10 opacity-100 rounded-md'>
