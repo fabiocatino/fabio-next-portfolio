@@ -31,7 +31,7 @@ const About = () => {
 							looking for an opportunity to further develop my current skill set
 							as a Junior Developer.
 						</p>
-						<p className='pt-5'>Here are some technologies I work with:</p>
+						<p className='py-5'>Here are some technologies I work with:</p>
 						<Skills />
 					</div>
 

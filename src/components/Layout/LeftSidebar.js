@@ -10,7 +10,7 @@ import React from 'react';
 
 const LeftSidebar = () => {
 	return (
-		<div className='hidden sm:flex flex-col items-center justify-center text-custom-white'>
+		<div className='hidden md:flex flex-col items-center justify-center text-custom-white'>
 			<ul className='list-none'>
 				<li className='sidebar-btn'>
 					<FontAwesomeIcon icon={faGithub} />
