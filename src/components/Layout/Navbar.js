@@ -42,14 +42,14 @@ const Navbar = () => {
 			</div>
 			<FontAwesomeIcon
 				onClick={MenuHandler}
-				className='delay md:hidden h-10 w-10 text-custom-green absolute right-5 cursor-pointer '
+				className='delay md:hidden h-10 w-10 text-custom-green absolute right-5 cursor-pointer  animate-fadedown'
 				icon={faBars}
 			/>
 			{/* RIGHT SIDE */}
 
 			<button
 				className='hidden md:flex ml-7 border rounded-md 
-            border-custom-green text-custom-green h-9 w-20  items-center justify-center hover:bg-green-900'
+            border-custom-green text-custom-green h-9 w-20  items-center justify-center hover:bg-green-900  animate-fadedown'
 			>
 				<p className='p-5'>CV</p>
 			</button>
