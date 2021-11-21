@@ -4,9 +4,14 @@ const RightSidebar = () => {
 	return (
 		<div className='hidden md:flex flex-col items-center justify-center '>
 			<ul className='list-none'>
-				<a target='_blank' rel='noopener' href="mailto:fabivs9@gmail.com" className='text-slate font-semibold writing-mode mb-10 hover:text-custom-green 
+				<a
+					target='_blank'
+					rel='noreferrer'
+					href='mailto:fabivs9@gmail.com'
+					className='text-slate font-semibold writing-mode mb-10 hover:text-custom-green 
 								transition-all	 duration-500 ease-in-out
-								active:border-dotted active:border-4 active:border-custom-green active:p-5 select-none'>
+								active:border-dotted active:border-4 active:border-custom-green active:p-5 select-none'
+				>
 					fabivs9@gmail.com
 				</a>
 				<div className='flex justify-center'>

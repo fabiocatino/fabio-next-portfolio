@@ -34,6 +34,7 @@ const Card = () => {
 						<Image
 							className='opacity-5 md:hover:scale-105 md:hover:opacity-100 md:opacity-50 transition duration-300 ease-in-out'
 							layout='fill'
+							alt='projectPic'
 							src='/airbnb.png'
 						></Image>
 						{/* </a> */}

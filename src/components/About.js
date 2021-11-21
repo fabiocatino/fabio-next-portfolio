@@ -40,6 +40,7 @@ const About = () => {
 							className='hover:scale-105 hover:opacity-100 opacity-50 transition duration-300 ease-in-out '
 							layout='fill'
 							src='/linkpic.png'
+							alt='propic'
 							objectFit='cover'
 						></Image>
 					</div>
