@@ -1,6 +1,6 @@
-import React from 'react';
-import Header from './Header';
 import Head from 'next/head';
+import React from 'react';
+import Navbar from './Navbar';
 
 const Layout = ({ children }) => {
 	return (
@@ -10,13 +10,13 @@ const Layout = ({ children }) => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<Header />
+			<Navbar />
 
-			<main className='flex flex-col justify-center px-[25px] min-h-screen lg:px-[150px]'>
+			<main className='flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:px-[150px] min-h-screen'>
 				{children}
 			</main>
 
-            <footer className='h-72'></footer>
+			<footer className=''></footer>
 		</div>
 	);
 };

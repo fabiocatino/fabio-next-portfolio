@@ -8,8 +8,35 @@ module.exports = {
 	theme: {
 		extend: {
 			screens: {
-				'xs': '0px',
+				'xxs': '0px',
+				'xs': '480px',
+			},	
+			keyframes: {
+				'fadedown': {
+					'0%': { opacity: '0',  transform: 'translateY(-20px)'},
+				    '100%': { 	opacity: '1', transform: 'translateY(0)'},
+				},
+				'bounce-in': {
+					'0%': {opacity: '0', transform: 'translateX(2000px)'},
+					'60%': {opacity: '1', transform: 'translateX(-30px)'},
+					'80%': {transform: 'translateX(10px)'},
+					'100%': {transform: 'translateX(0)'},
+				},
+			
 			},
+			animation: {
+				'fadedown': 'fadedown 1000ms ease',
+				'bounce-in':'bounce-in 1000ms ease'
+			
+			},
+			transitionDuration: {
+				'3000': '3000ms',
+			   },
+			   translate: {
+				'2000': '2000px',
+				'--30': '-30px',
+			
+			   },
 			colors: {
 				navy: {
 					light: '#112240',
