@@ -34,6 +34,7 @@ const Card = () => {
 							layout='fill'
 							src='/airbnb.png'
 						></Image>
+						{/* </a> */}
 					</Transition.Child>
 
 					{/* RIGHT SECTION */}
@@ -56,7 +57,7 @@ const Card = () => {
 						</a>
 						{/* MAIN CARD */}
 						<Transition.Child
-							enter='transform transition duration-1000 ease-in-out'
+							enter='transform opacity-0 transition duration-1000 ease-in-out'
 							enterFrom='transform opacity-1 translate-x-2000  duration-1000 ease-in-out'
 							enterTo='transform opacity-1 translate-x-0 duration-1000 ease-in-out'
 						>

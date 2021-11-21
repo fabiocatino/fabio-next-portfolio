@@ -7,7 +7,7 @@ const Navbar = () => {
 	const MenuHandler = () => {};
 
 	return (
-		<div className='bg-navy-header flex items-center px-[25px] sm:px-[50px] h-[100px] fixed w-screen z-10 shadow-xl '>
+		<div className='bg-navy-header flex items-center px-[25px] sm:px-[50px] h-[100px] fixed w-screen z-10 shadow-xl'>
 			{/* LEFT SIDE */}
 			<div className='h-10 w-10 rounded-full border- border-2 border-custom-green flex hover:bg-green-900 cursor-pointer animate-fadedown'>
 				<h3 className='text-custom-green flex justify-center items-center w-full'>

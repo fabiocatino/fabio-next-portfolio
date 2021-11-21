@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
 
 			<Navbar />
 
-			<main className='flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:px-[150px] min-h-screen'>
+			<main className='flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:px-[150px] '>
 				{children}
 			</main>
 
