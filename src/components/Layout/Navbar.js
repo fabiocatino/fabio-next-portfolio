@@ -9,7 +9,7 @@ const Navbar = () => {
 	return (
 		<div className='bg-navy-header flex items-center px-[25px] sm:px-[50px] h-[100px] w-full fixed z-10 shadow-xl'>
 			{/* LEFT SIDE */}
-			<div className='h-10 w-10 rounded-full border- border-2 border-custom-green flex hover:bg-green-900 cursor-pointer animate-fadedown'>
+			<div className='h-10 w-10 rounded-full border- border-2 border-custom-green flex hover:bg-green-900 cursor-pointer animate-fadedown '>
 				<h3 className='text-custom-green flex justify-center items-center w-full'>
 					F
 				</h3>
@@ -26,10 +26,11 @@ const Navbar = () => {
 						enter='transition opacity-0 duration-1000 ease-in-out'
 						enterFrom='transform -translate-y-5 transition opacity-0  duration-1000 ease-in-out'
 						enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
+						style={{ transitionDelay: `${index * 500}ms` }}
+
 					>
 						<button
 							key={link.id}
-							// style={{ transitionDelay: `${index * 500}ms` }}
 							className='navBtn'
 						>
 							<span className='text-custom-green '>{link.num}</span>

@@ -5,7 +5,6 @@ import RightSidebar from '../src/components/RightSidebar';
 import Intro from '../src/components/Intro';
 
 export default function Home() {
-
 	return (
 		<div>
 			<div className='fixed left-10 w-10 bottom-0 right-auto animate-fadedown'>
@@ -23,4 +22,11 @@ export default function Home() {
 			<Projects />
 		</div>
 	);
+}
+
+export async function getStaticProps(context) {
+	return {
+		props: {},
+		revalidate: 1000,
+	};
 }
