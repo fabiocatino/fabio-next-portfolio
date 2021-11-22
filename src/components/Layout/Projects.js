@@ -40,7 +40,7 @@ const Projects = () => {
 					<Link passHref={true} href='/'>
 						<a
 							target='_blank'
-							ref='noreferrer'
+							rel='noreferrer'
 							className='text-custom-green font-semibold'
 						>
 							view the archive
@@ -63,8 +63,10 @@ const Projects = () => {
 						<SmallCard />
 						<SmallCard />
 						<div className='col-span-3 flex justify-center w-full'>
-							<button className='border border-1 border-custom-green text-custom-green mt-16 p-4 w-40 rounded-md 
-											bg-transparent hover:bg-custom-green-transparent'>
+							<button
+								className='border border-1 border-custom-green text-custom-green mt-16 p-4 w-40 rounded-md 
+											bg-transparent hover:bg-custom-green-transparent'
+							>
 								Show more
 							</button>
 						</div>
