@@ -2,7 +2,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Transition } from '@headlessui/react';
 import React from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
 
 const Navbar = () => {
 	const MenuHandler = () => {};
@@ -10,7 +10,7 @@ const Navbar = () => {
 	return (
 		<div className='bg-navy-header flex items-center px-[25px] sm:px-[50px] h-[100px] w-full fixed z-10 shadow-xl'>
 			{/* LEFT SIDE */}
-			<Link href='/'>
+			<Link href='/' passHref={true}>
 				<svg
 					id='logo'
 					xmlns='http://www.w3.org/2000/svg'
@@ -30,9 +30,6 @@ const Navbar = () => {
 							<polygon
 								id='Shape'
 								stroke='currentColor'
-								stroke-width='5'
-								stroke-linecap='round'
-								stroke-linejoin='round'
 								points='39 0 0 22 0 67 39 90 78 68 78 23'
 							></polygon>
 						</g>
