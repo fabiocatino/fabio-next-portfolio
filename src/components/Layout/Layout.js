@@ -2,6 +2,8 @@ import { Transition } from '@headlessui/react';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { useVisibilityHook } from 'react-observer-api';
+import Contact from '../Contact';
+import Footer from './Footer';
 import Navbar from './Navbar';
 
 const Layout = ({ children }) => {
@@ -17,7 +19,7 @@ const Layout = ({ children }) => {
 	}, [y]);
 
 	return (
-		<div className='bg-navy min-h-screen '>
+		<div className='relative bg-navy min-h-screen '>
 			<Head>
 				<title>Create Next App</title>
 				<link rel='icon' href='/favicon.ico' />
@@ -40,8 +42,8 @@ const Layout = ({ children }) => {
 			<main className='flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:mx-[100px]  2xl:mx-[180px] '>
 				{children}
 			</main>
-
-			<footer className='h-48'></footer>
+			<Contact />
+			<Footer  />
 		</div>
 	);
 };

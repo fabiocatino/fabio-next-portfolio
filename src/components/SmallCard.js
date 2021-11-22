@@ -5,7 +5,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 const SmallCard = () => {
 	return (
-		<div className='flex bg-navy-light  h-full p-5 mt-10 hover:scale-105 transition duration-300 ease-out cursor-pointer'>
+		<div className='w-screenflex bg-navy-light p-5 mt-10 hover:scale-105 transition duration-300 ease-out cursor-pointer rounded-md shadow-md '>
 			<div className='h-full p-5 '>
 				<div className='flex justify-between items-center py-2'>
 					<svg
@@ -33,11 +33,13 @@ const SmallCard = () => {
 						Lorem ipsum dolor sit amet.
 					</p>
 				</div>
-				<div className='flex font-mono gap-5 mt-2 text-left text-lg text-slate-light font-semibold '>
+				<div className='flex font-mono gap-x-5 mt-2 text-left text-lg text-slate-light font-semibold flex-wrap'>
 					<p className=''>VS Code</p>
 					<p className=''>Atom</p>
 					<p className=''>iTerm2</p>
 					<p className=''>Hyper</p>
+					<p className=''>VS Code</p>
+				
 				</div>
 			</div>
 		</div>

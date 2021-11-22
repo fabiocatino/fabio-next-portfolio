@@ -7,6 +7,7 @@ const Tags = () => {
 			<p className=''>Atom</p>
 			<p className=''>iTerm2</p>
 			<p className=''>Hyper</p>
+			
 		</div>
 	);
 };
