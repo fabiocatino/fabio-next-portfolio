@@ -10,7 +10,7 @@ const Footer = () => {
 								active:border-dotted active:border-4 active:border-custom-green active:p-5 select-none space-x-2'
 				>
 					<a href='https://github.com/bchiang7'>Inspired by Brittany Chiang.</a>
-					<a href='https://github.com/fabiocatino'>Builded by Fabio Catino</a>
+					<a href='https://github.com/fabiocatino'>Built by Fabio Catino</a>
 				</div>
 			</div>
 		</div>

@@ -29,7 +29,7 @@ const Navbar = () => {
 					>
 						<button
 							key={link.id}
-							style={{ transitionDelay: `${index * 500}ms` }}
+							// style={{ transitionDelay: `${index * 500}ms` }}
 							className='navBtn'
 						>
 							<span className='text-custom-green '>{link.num}</span>
