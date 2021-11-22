@@ -19,7 +19,7 @@ const Projects = () => {
 					enterFrom='transform -translate-y-5 transition opacity-0  duration-1000 ease-in-out'
 					enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
 				>
-					<div ref={setElement} className='flex items-center gap-5 '>
+					<div ref={setElement} className='flex items-center gap-5 xl:mx-[180px]'>
 						<span className='text-custom-green md:text-4xl font-mono'>02.</span>
 						<p className='navP text-[26px] md:text-4xl font-bold '>
 							My Projects

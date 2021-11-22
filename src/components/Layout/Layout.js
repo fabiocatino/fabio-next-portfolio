@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
 	}, [y]);
 
 	return (
-		<div className='bg-navy min-h-screen'>
+		<div className='bg-navy min-h-screen '>
 			<Head>
 				<title>Create Next App</title>
 				<link rel='icon' href='/favicon.ico' />
@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
 				</Transition>
 			</div>
 
-			<main className='flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:px-[150px] '>
+			<main className='flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:mx-[100px]  2xl:mx-[180px] '>
 				{children}
 			</main>
 

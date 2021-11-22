@@ -13,7 +13,7 @@ const Card = () => {
 	return (
 		<div ref={setElement}>
 			<Transition show={isVisible}>
-				<div className='grid sm:grid-cols-12 gap-10 min-w-screen'>
+				<div className='grid xs:grid-cols-12 grid-cols-3fr gap-10 min-w-screen'>
 					{/* IMAGE/LEFT SECTION */}
 
 					<Transition.Child

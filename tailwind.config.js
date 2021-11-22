@@ -7,6 +7,9 @@ module.exports = {
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {
+			gridTemplateColumns: { 
+				'3fr': '3fr 2fr'
+			},
 			screens: {
 				'xxs': '0px',
 				'xs': '480px',

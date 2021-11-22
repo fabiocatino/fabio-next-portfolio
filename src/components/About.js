@@ -21,8 +21,8 @@ const About = () => {
 					<span className='self-center w-[100px] md:w-[300px] text-navy-lightest_navy h-[1px] border-t-[1px] relative top-[5px]' />
 				</div>
 
-				<div className='grid grid-cols-1 md:grid-cols-2 pt-10 gap-10'>
-					<div className='text-slate text-lg md:text-xl font-semibold col-span-1'>
+				<div className='grid grid-cols-1 sm:grid-cols-3fr pt-10 gap-10 '>
+					<div className='text-slate text-lg md:text-xl font-semibold'>
 						<p>
 							Hi, I am Fabio <br />
 							Originally, I am from Bari, Italy. I just graduated from the
@@ -35,9 +35,9 @@ const About = () => {
 						<Skills />
 					</div>
 
-					<div className='relative h-52 w-52 md:h-[300px] md:w-[300px] mix-blend-screen   filter brightness-50 hover:brightness-100 bg-custom-green'>
+					<div className='relative h-52 w-52 md:h-[300px] md:w-[300px] mix-blend-screen filter brightness-50 hover:brightness-100 bg-custom-green'>
 						<Image
-							className='hover:scale-105 hover:opacity-100 opacity-50 transition duration-300 ease-in-out '
+							className='hover:scale-105 hover:opacity-100 opacity-50 transition duration-300 ease-in-out'
 							layout='fill'
 							src='/linkpic.png'
 							alt='propic'
