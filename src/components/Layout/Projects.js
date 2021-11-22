@@ -62,15 +62,17 @@ const Projects = () => {
 						<SmallCard />
 						<SmallCard />
 						<SmallCard />
-						<div className='col-span-3 flex justify-center w-full'>
-							<button
-								className='border border-1 border-custom-green text-custom-green mt-16 p-4 w-40 rounded-md 
-											bg-transparent hover:bg-custom-green-transparent'
-							>
-								Show more
-							</button>
-						</div>
 					</Transition>
+
+					<div className='flex justify-center'>
+						<button
+							className='border border-1 border-custom-green text-custom-green mt-16 p-4 w-40 rounded-md 
+											bg-transparent hover:bg-custom-green-transparent'
+						>
+							Show more
+						</button>
+					</div>
+					
 				</div>
 			</div>
 		</section>
