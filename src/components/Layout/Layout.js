@@ -21,8 +21,8 @@ const Layout = ({ children }) => {
 	return (
 		<div className='relative bg-navy min-h-screen '>
 			<Head>
-				<title>Create Next App</title>
-				<link rel='icon' href='/favicon.ico' />
+				<title>Fabio Catino</title>
+				<link rel='icon' href='/favicon.png' />
 			</Head>
 
 			<div ref={setElement}>
@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
 				{children}
 			</main>
 			<Contact />
-			<Footer  />
+			<Footer />
 		</div>
 	);
 };

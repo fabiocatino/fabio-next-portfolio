@@ -9,7 +9,7 @@ const RightSidebar = () => {
 					rel='noreferrer'
 					href='mailto:fabivs9@gmail.com'
 					className='text-slate font-semibold writing-mode mb-10 hover:text-custom-green 
-								transition-all	 duration-500 ease-in-out
+								transition-all	 duration-500 ease-in-out transform hover:-rotate-90 hover:mr-6
 								active:border-dotted active:border-4 active:border-custom-green active:p-5 select-none'
 				>
 					fabivs9@gmail.com
