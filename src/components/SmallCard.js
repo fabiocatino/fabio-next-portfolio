@@ -19,9 +19,9 @@ const SmallCard = () => {
 						<title>Folder</title>
 						<path d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'></path>
 					</svg>
-					<div className='flex gap-2  navBtn text-custom-white'>
-						<FontAwesomeIcon className='h-5 w-10 ' icon={faGithub} />
-						<FontAwesomeIcon className='h-5 w-10 ' icon={faExternalLinkAlt} />
+					<div className='flex gap-2  text-custom-white'>
+						<FontAwesomeIcon className='h-5 w-10 navBtn ' icon={faGithub} />
+						<FontAwesomeIcon className='h-5 w-10 navBtn ' icon={faExternalLinkAlt} />
 					</div>
 				</div>
 				<div className='mt-5 '>
