@@ -15,9 +15,7 @@ const Card = () => {
 			<Transition show={isVisible}>
 				<div className='grid sm:grid-cols-12 gap-10 min-w-screen'>
 					{/* IMAGE/LEFT SECTION */}
-					{/* enter='transition opacity-0 duration-1000 ease-in-out'
-				enterFrom='transform -translate-y-5 transition opacity-0  duration-1000 ease-in-out'
-				enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out' */}
+
 					<Transition.Child
 						as='a'
 						href='/'
@@ -48,7 +46,7 @@ const Card = () => {
 					>
 						{/* TEXT TOP RIGHT */}
 						<h1 className='text-custom-green md:m-[10px] font-semibold font-mono'>
-							Featured Projects
+							Featured Project
 						</h1>
 						<a
 							href='/'

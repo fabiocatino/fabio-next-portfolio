@@ -54,6 +54,7 @@ module.exports = {
 				custom: {
 					white: ' #e6f1ff',
 					green: '#64ffda',
+					'green-transparent': 'rgba(104, 239, 162, 0.2)'
 				},
 			},
 		},

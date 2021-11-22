@@ -1,13 +1,13 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Transition } from '@headlessui/react';
-import React, { useState } from 'react';
-import { useVisibilityHook } from 'react-observer-api';
+import React from 'react';
+
 const Navbar = () => {
 	const MenuHandler = () => {};
 
 	return (
-		<div className='bg-navy-header flex items-center px-[25px] sm:px-[50px] h-[100px] fixed w-screen z-10 shadow-xl'>
+		<div className='bg-navy-header flex items-center px-[25px] sm:px-[50px] h-[100px] w-full fixed z-10 shadow-xl'>
 			{/* LEFT SIDE */}
 			<div className='h-10 w-10 rounded-full border- border-2 border-custom-green flex hover:bg-green-900 cursor-pointer animate-fadedown'>
 				<h3 className='text-custom-green flex justify-center items-center w-full'>
@@ -17,9 +17,7 @@ const Navbar = () => {
 
 			{/* MIDDLE SIDE */}
 
-			<div
-				className='hidden md:flex justify-end flex-grow gap-7 text-[16px] font-mono'
-			>
+			<div className='hidden md:flex justify-end flex-grow gap-7 text-[16px] font-mono'>
 				{navLinks.map((link, index) => (
 					<Transition
 						key={link.id}
@@ -49,7 +47,7 @@ const Navbar = () => {
 
 			<button
 				className='hidden md:flex ml-7 border rounded-md 
-            border-custom-green text-custom-green h-9 w-20  items-center justify-center hover:bg-green-900  animate-fadedown'
+            border-custom-green text-custom-green h-9 w-20  items-center justify-center hover:bg-custom-green-transparent  animate-fadedown'
 			>
 				<p className='p-5'>CV</p>
 			</button>
