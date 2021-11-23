@@ -4,8 +4,9 @@ import { useEffect } from 'react';
 import '../public/global.css';
 import Layout from '../src/components/Layout/Layout';
 import '../public/nprogress.css';
+import { SessionProvider } from 'next-auth/react';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 	const router = useRouter();
 	const errorPage = router.pathname === '/_error';
 
@@ -17,9 +18,11 @@ function MyApp({ Component, pageProps }) {
 	return (
 		<>
 			{!errorPage ? (
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
+				<SessionProvider session={session}>
+					<Layout>
+						<Component {...pageProps} />
+					</Layout>
+				</SessionProvider>
 			) : (
 				<Component {...pageProps} />
 			)}

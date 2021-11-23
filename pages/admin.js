@@ -1,43 +1,26 @@
-import React, { useRef } from 'react';
+import { getProviders, signIn } from 'next-auth/react';
+import React from 'react';
+import { GoogleLoginButton } from 'react-social-login-buttons';
 
-const Admin = () => {
-	const emailRef = useRef();
-	const passwordRef = useRef();
-
-	const submitHandler = async (e) => {
-		e.preventDefault();
-	};
-
+const Admin = ({ providers }) => {
 	return (
-		<div className='mt-48'>
-			<form
-				onSubmit={submitHandler}
-				className='mt-48 flex flex-col items-center gap-5'
+		<div className='mt-48 self-center input-form'>
+			<GoogleLoginButton
+				className=''
+				GoogleLoginButton
+				onClick={() => signIn(providers.google.id, { callbackUrl: '/' })}
 			>
-				<input
-					ref={emailRef}
-					className='input-form'
-					type='email'
-					placeholder='Email'
-					required
-				/>
-				<input
-					ref={passwordRef}
-					className='input-form'
-					type='password'
-					placeholder='Password'
-					required
-				/>
-				<button
-					type='submit'
-					className='border border-1 border-custom-green text-custom-green mt-5 p-4 w-40 rounded-md 
-											bg-transparent hover:bg-custom-green-transparent'
-				>
-					Login
-				</button>
-			</form>
+				Sign in with {providers.google.name}
+			</GoogleLoginButton>
 		</div>
 	);
 };
 
 export default Admin;
+
+export async function getServerSideProps(context) {
+	const providers = await getProviders();
+	return {
+		props: { providers },
+	};
+}
