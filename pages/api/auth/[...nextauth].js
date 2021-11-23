@@ -12,7 +12,7 @@ export default NextAuth({
 	secret: process.env.JWT_SECRET,
 
 	pages: {
-		signIn: '/auth/admin',
+		signIn: '/admin',
 	},
 
 	callbacks: {
