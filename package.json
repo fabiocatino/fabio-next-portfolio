@@ -13,6 +13,7 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@headlessui/react": "^1.4.2",
     "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
     "next": "latest",
     "nprogress": "^0.2.0",

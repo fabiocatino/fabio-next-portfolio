@@ -10,6 +10,7 @@ const Navbar = () => {
 	return (
 		<div className='bg-navy-header flex items-center px-[25px] sm:px-[50px] h-[100px] w-full fixed z-10 shadow-xl'>
 			{/* LEFT SIDE */}
+
 			<Link href='/' passHref={true}>
 				<svg
 					id='logo'

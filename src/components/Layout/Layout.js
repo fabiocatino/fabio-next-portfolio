@@ -23,6 +23,8 @@ const Layout = ({ children }) => {
 			<Head>
 				<title>Fabio Catino</title>
 				<link rel='icon' href='/favicon.png' />
+				<meta charSet='UTF-8' />
+				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 			</Head>
 
 			<div ref={setElement}>
@@ -42,7 +44,6 @@ const Layout = ({ children }) => {
 			<main className='flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:mx-[100px]  2xl:mx-[180px] '>
 				{children}
 			</main>
-			<Contact />
 			<Footer />
 		</div>
 	);

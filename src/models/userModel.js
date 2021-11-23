@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema(
 				},
 				message: 'Password do not match',
 			},
+			select: false,
 		},
 		isAdmin: { type: Boolean, required: true, default: false },
 	},
@@ -30,14 +31,16 @@ const userSchema = new mongoose.Schema(
 	}
 );
 
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
+	if (!this.isModified('password')) return next();
 
-	if (!this.isModified('password')) return next()
-	
-	this.password = await bcrypt.hash(this.password, 12)
-	this.password2 = undefined
-
+	this.password = await bcrypt.hash(this.password, 12);
+	this.password2 = undefined;
 });
+
+userSchema.methods.correctPassword = async function (verifyPassword, password) {
+	return await bcrypt.compare(verifyPassword, password);
+};
 
 const User = mongoose.models.User || mongoose.model('User', userSchema);
 

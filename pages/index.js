@@ -3,6 +3,7 @@ import LeftSidebar from '../src/components/Layout/LeftSidebar';
 import Projects from '../src/components/Layout/Projects';
 import RightSidebar from '../src/components/RightSidebar';
 import Intro from '../src/components/Intro';
+import Contact from '../src/components/Contact';
 
 export default function Home() {
 	return (
@@ -20,6 +21,9 @@ export default function Home() {
 			<About />
 
 			<Projects />
+
+			<Contact />
+
 		</div>
 	);
 }
