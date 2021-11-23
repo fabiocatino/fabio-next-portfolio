@@ -7,6 +7,7 @@ import '../public/nprogress.css';
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
+	const errorPage = router.pathname === '/_error';
 
 	useEffect(() => {
 		router.events.on('routeChangeStart', () => NProgress.start());
@@ -14,9 +15,15 @@ function MyApp({ Component, pageProps }) {
 	}, [router.events]);
 
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		<>
+			{!errorPage ? (
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			) : (
+				<Component {...pageProps} />
+			)}
+		</>
 	);
 }
 

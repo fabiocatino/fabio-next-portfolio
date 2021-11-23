@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-const admin = () => {
+const Admin = () => {
 	const emailRef = useRef();
 	const passwordRef = useRef();
 
@@ -40,4 +40,4 @@ const admin = () => {
 	);
 };
 
-export default admin;
+export default Admin;

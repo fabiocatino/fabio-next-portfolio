@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
 
 const userSchema = new mongoose.Schema(
 	{
@@ -24,6 +25,8 @@ const userSchema = new mongoose.Schema(
 			},
 			select: false,
 		},
+		passwordResetToken: { type: String },
+		passwordResetExpires: { type: Date },
 		isAdmin: { type: Boolean, required: true, default: false },
 	},
 	{
@@ -31,15 +34,24 @@ const userSchema = new mongoose.Schema(
 	}
 );
 
-userSchema.pre('save', async function (next) {
-	if (!this.isModified('password')) return next();
-
+userSchema.pre('save', async function () {
 	this.password = await bcrypt.hash(this.password, 12);
 	this.password2 = undefined;
 });
 
 userSchema.methods.correctPassword = async function (verifyPassword, password) {
 	return await bcrypt.compare(verifyPassword, password);
+};
+
+userSchema.methods.createPasswordResetToken = function () {
+	const resetToken = crypto.randomBytes(32).toString('hex');
+	this.passwordResetToken = crypto
+		.createHash('sha256')
+		.update(resetToken)
+		.digest('hex');
+
+	this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+	return resetToken;
 };
 
 const User = mongoose.models.User || mongoose.model('User', userSchema);
