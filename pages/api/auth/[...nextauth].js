@@ -9,6 +9,7 @@ export default NextAuth({
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 		}),
 	],
+	secret: process.env.JWT_SECRET,
 
 	pages: {
 		signIn: '/admin',
@@ -29,7 +30,7 @@ export default NextAuth({
 					profile.email_verified && profile.email === process.env.EMAIL_USERNAME
 				);
 			}
-			return true; // Do different verification for other providers that don't have `email_verified`
+			return true;
 		},
 	},
 });

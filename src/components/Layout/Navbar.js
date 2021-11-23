@@ -1,11 +1,17 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Transition } from '@headlessui/react';
-import React from 'react';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import React from 'react';
+import { Drawer } from './Drawer';
 
-const Navbar = () => {
-	const MenuHandler = () => {};
+const Navbar = ({ open, setOpen }) => {
+	const { data: session } = useSession();
+
+	const MenuHandler = () => {
+		setOpen((prevState) => !prevState);
+	};
 
 	return (
 		<div className='bg-navy-header flex items-center px-[25px] sm:px-[50px] h-[100px] w-full fixed z-10 shadow-xl'>
@@ -64,6 +70,7 @@ const Navbar = () => {
 				icon={faBars}
 			/>
 			{/* RIGHT SIDE */}
+			<Drawer open={open} MenuHandler={MenuHandler} />
 
 			<button
 				className='hidden md:flex ml-7 border rounded-md 
@@ -71,6 +78,15 @@ const Navbar = () => {
 			>
 				<p className='p-5'>CV</p>
 			</button>
+			{session && (
+				<button
+					onClick={() => signOut()}
+					className='hidden md:flex ml-7 border rounded-md 
+            border-custom-green text-custom-green h-9 w-20  items-center justify-center hover:bg-custom-green-transparent  animate-fadedown'
+				>
+					<p className='p-5'>Logout</p>
+				</button>
+			)}
 		</div>
 	);
 };

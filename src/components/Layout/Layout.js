@@ -2,12 +2,12 @@ import { Transition } from '@headlessui/react';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { useVisibilityHook } from 'react-observer-api';
-import Contact from '../Contact';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
 const Layout = ({ children }) => {
 	const [y, setY] = useState(0);
+	const [open, setOpen] = useState(false);
 	const { setElement } = useVisibilityHook();
 
 	useEffect(() => {
@@ -37,11 +37,15 @@ const Layout = ({ children }) => {
 					leaveFrom='opacity-100 transform translate-y-0'
 					leaveTo='opacity-0 -translate-y-5'
 				>
-					<Navbar />
+					<Navbar open={open} setOpen={setOpen} />
 				</Transition>
 			</div>
 
-			<main className='flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:mx-[100px]  2xl:mx-[180px] '>
+			<main
+				className={`${
+					open && 'filter blur'
+				}  flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:mx-[100px]  2xl:mx-[180px]`}
+			>
 				{children}
 			</main>
 			<Footer />
