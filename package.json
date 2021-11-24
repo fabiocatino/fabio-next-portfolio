@@ -13,6 +13,8 @@
 		"@fortawesome/react-fontawesome": "^0.1.16",
 		"@headlessui/react": "^1.4.2",
 		"@next-auth/mongodb-adapter": "^0.0.2-next.285",
+		"@reach/portal": "^0.16.2",
+		"axios": "^0.24.0",
 		"bcryptjs": "^2.4.3",
 		"mongodb": "^4.2.0",
 		"mongoose": "^6.0.13",

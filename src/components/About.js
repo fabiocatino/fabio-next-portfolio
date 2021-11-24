@@ -1,11 +1,14 @@
 import { Transition } from '@headlessui/react';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
+import ModalPage from './Modal';
 import Skills from './Skills';
 
 const About = () => {
 	const { setElement, isVisible } = useVisibilityHook();
+	const { data: session } = useSession();
 
 	return (
 		<section ref={setElement} className='pt-14'>
@@ -32,7 +35,14 @@ const About = () => {
 							as a Junior Developer.
 						</p>
 						<p className='py-5'>Here are some technologies I work with:</p>
-						<Skills />
+						
+							<Skills />
+
+						{session && (
+							<div className='pt-10 flex w-full'>
+								<ModalPage />
+							</div>
+						)}
 					</div>
 
 					<div className='relative h-52 w-52 md:h-[300px] md:w-[300px] mix-blend-screen filter brightness-50 hover:brightness-100 bg-custom-green'>

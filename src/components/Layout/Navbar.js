@@ -8,7 +8,7 @@ import { Drawer } from './Drawer';
 
 const Navbar = ({ open, setOpen }) => {
 	const { data: session } = useSession();
-	console.log(session)
+
 	const MenuHandler = () => {
 		setOpen((prevState) => !prevState);
 	};

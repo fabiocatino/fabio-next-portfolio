@@ -71,9 +71,7 @@ const Card = () => {
 							</div>
 						</Transition.Child>
 						{/* TAGS */}
-						<div className='flex md:justify-end'>
-							<Tags />
-						</div>
+						
 						{/* LINKS */}
 						<div className='flex md:justify-end gap-5'>
 							<a

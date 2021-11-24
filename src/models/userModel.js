@@ -1,37 +1,21 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
-import crypto from 'crypto';
 
 const userSchema = new mongoose.Schema(
 	{
-		// password: { type: String, required: true },
-		// password2: {
-		// 	type: String,
-		// 	required: true,
-		// 	validate: {
-		// 		validator: function (el) {
-		// 			return el === this.password;
-		// 		},
-		// 		message: 'Password do not match',
-		// 	},
-		// 	select: false,
-		// },
-
+		skills: [{ type: String, unique: true }],
+		socials: [
+			{
+				name: { type: String, required: true },
+				link: { type: String, required: true },
+				required: false,
+			},
+		],
 		isAdmin: { type: Boolean, required: true, default: false },
 	},
 	{
 		timestamps: true,
 	}
 );
-
-// userSchema.pre('save', async function () {
-// 	this.password = await bcrypt.hash(this.password, 12);
-// 	this.password2 = undefined;
-// });
-
-// userSchema.methods.correctPassword = async function (verifyPassword, password) {
-// 	return await bcrypt.compare(verifyPassword, password);
-// };
 
 const User = mongoose.models.User || mongoose.model('User', userSchema);
 
