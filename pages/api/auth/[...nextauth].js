@@ -16,24 +16,8 @@ export default async function auth(req, res) {
 		}),
 		secret: process.env.JWT_SECRET,
 
-<<<<<<< HEAD
-	pages: {
-		signIn: '/admin',
-	},
-
-	callbacks: {
-		async session({ session, token }) {
-			session.user.username = session.user.name
-				.split(' ')
-				.join('')
-				.toLocaleLowerCase();
-			session.user.uid = token.sub;
-
-			return session;
-=======
 		pages: {
 			signIn: '/admin',
->>>>>>> development
 		},
 		callbacks: {
 			async signIn({ account, profile }) {
