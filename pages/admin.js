@@ -3,6 +3,7 @@ import React from 'react';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 
 const Admin = ({ providers }) => {
+	console.log(providers)
 	return (
 		<div className='mt-48 self-center input-form'>
 			<GoogleLoginButton

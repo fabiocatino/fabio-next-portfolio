@@ -10,6 +10,7 @@ const Layout = ({ children }) => {
 	const [open, setOpen] = useState(false);
 	const { setElement } = useVisibilityHook();
 
+	
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			window.addEventListener('scroll', () => {
@@ -43,7 +44,7 @@ const Layout = ({ children }) => {
 
 			<main
 				className={`${
-					open && 'filter blur'
+					open && 'filter blur select-none'
 				}  flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:mx-[100px]  2xl:mx-[180px]`}
 			>
 				{children}
