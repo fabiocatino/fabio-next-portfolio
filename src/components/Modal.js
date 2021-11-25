@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
 import Portal from '@reach/portal';
+import axios from 'axios';
+import React, { useContext, useState } from 'react';
 import SkillsContext from '../store/SkillsContext';
 
 const ModalPage = () => {
@@ -17,11 +17,10 @@ const ModalPage = () => {
 	const submitHandler = async (e) => {
 		e.preventDefault();
 		dispatch({ type: 'UPLOAD_START' });
+		if (skill.length === 0) return;
 		try {
-			const {
-				data: { data },
-			} = await axios.post('/api/add-skill', { skill });
-			dispatch({ type: 'UPLOAD_SUCCESS', payload: [...skills, data] });
+			await axios.post('/api/add-skill', { skill });
+			dispatch({ type: 'UPLOAD_SUCCESS', payload: [...skills, ...skill] });
 		} catch (error) {
 			dispatch({ type: 'UPLOAD_ERROR', payload: error });
 			throw new Error('Something went wrong');

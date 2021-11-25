@@ -16,6 +16,22 @@ const SkillsReducer = (state, action) => {
 				error: true,
 				isLoading: false,
 			};
+		case 'DELETE_START':
+			return {
+				error: false,
+				isLoading: true,
+			};
+		case 'DELETE_SUCCESS':
+			return {
+				skills: action.payload,
+				error: false,
+				isLoading: false,
+			};
+		case 'DELETE_ERROR':
+			return {
+				error: true,
+				isLoading: false,
+			};
 		case 'FETCHING_START':
 			return {
 				isLoading: true,
@@ -31,8 +47,8 @@ const SkillsReducer = (state, action) => {
 
 		case 'FETCHING_ERROR':
 			return {
-				isLoading: true,
-				error: false,
+				isLoading: false,
+				error: true,
 			};
 		default:
 			return state;

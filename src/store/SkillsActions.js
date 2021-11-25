@@ -12,6 +12,20 @@ export const SendError = (error) => ({
 	payload: error,
 });
 
+export const DeleteSkill = () => ({
+	type: 'DELETED_START',
+});
+
+export const Delete = (skill) => ({
+	type: 'DELETE_SUCCESS',
+	payload: [...skill],
+});
+
+export const SendError = (error) => ({
+	type: 'DELETE_ERROR',
+	payload: error,
+});
+
 export const FetchSkills = () => ({
 	type: 'FETCHING_START',
 });
