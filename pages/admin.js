@@ -5,12 +5,12 @@ import { GoogleLoginButton } from 'react-social-login-buttons';
 const Admin = ({ providers }) => {
 	return (
 		<div className='mt-48 self-center input-form'>
-			{providers ? <GoogleLoginButton
+			<GoogleLoginButton
 				GoogleLoginButton
-				onClick={() => signIn(providers.google.id, { callbackUrl: '/' })}
+				onClick={() => signIn(providers?.google.id, { callbackUrl: '/' })}
 			>
-				Sign in with {providers.google.name}
-			</GoogleLoginButton> : Loading}
+				Sign in with {providers?.google.name}
+			</GoogleLoginButton>
 		</div>
 	);
 };
