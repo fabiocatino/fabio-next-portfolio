@@ -3,7 +3,7 @@ import React from 'react';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 
 const Admin = ({ providers }) => {
-	console.log(providers)
+	console.log(providers);
 	return (
 		<div className='mt-48 self-center input-form'>
 			<GoogleLoginButton
@@ -19,8 +19,7 @@ const Admin = ({ providers }) => {
 export default Admin;
 
 export async function getServerSideProps() {
-	const providers = await getProviders();
 	return {
-		props: { providers },
+		props: { providers: await getProviders() },
 	};
 }
