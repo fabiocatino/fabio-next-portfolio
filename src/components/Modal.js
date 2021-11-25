@@ -13,7 +13,6 @@ const ModalPage = () => {
 
 	const [skill, setSkill] = useState([]);
 	const [value, setValue] = useState('');
-
 	const submitHandler = async (e) => {
 		e.preventDefault();
 		dispatch({ type: 'UPLOAD_START' });
@@ -31,7 +30,7 @@ const ModalPage = () => {
 	};
 	const keyDownHandler = (e) => {
 		if (e.keyCode === 32 && value !== '' && skill.length < 5) {
-			setSkill([...skill, e.target.value]);
+			setSkill([...skill, { name: e.target.value }]);
 			setValue('');
 		}
 	};
@@ -62,7 +61,7 @@ const ModalPage = () => {
 											index={i}
 											key={i}
 										>
-											{item}
+											{item.name}
 										</SkillEl>
 									))}
 								</div>

@@ -9,9 +9,8 @@ export default async function handler(req, res) {
 
 	if (req.method === 'GET') {
 		try {
-			const user = await User.findOne({ email })
+			const user = await User.findOne({ email });
 			res.status(200).json({ status: 'success', data: user.skills });
-
 		} catch (error) {
 			res.status(400).json({
 				status: 'error',

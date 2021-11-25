@@ -14,8 +14,8 @@ const Skills = () => {
 			const {
 				data: { data },
 			} = res;
-
-			dispatch({ type: 'FETCHING_SUCCESS', payload: data });
+			const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
+			dispatch({ type: 'FETCHING_SUCCESS', payload: sortedData });
 		} catch (error) {
 			dispatch({ type: 'FETCHING_ERROR', payload: error });
 			throw new Error('Something went wrong');
@@ -25,11 +25,10 @@ const Skills = () => {
 	const removeSkillHandler = async (e) => {
 		dispatch({ type: 'DELETE_START' });
 		const skill = e.target.innerText;
-
 		try {
-			const updatedSkills = skills.filter((item) => item !== skill);
-			const res = await axios.delete('/api/remove-skill', {
-				data: { skill },
+			const updatedSkills = skills.filter((item) => item.name !== skill);
+			await axios.delete('/api/remove-skill', {
+				data: { name: skill },
 			});
 
 			dispatch({ type: 'DELETE_SUCCESS', payload: updatedSkills });
@@ -42,7 +41,6 @@ const Skills = () => {
 	useEffect(() => {
 		getSkills();
 	}, [getSkills]);
-
 	return (
 		<div className='grid grid-cols-2'>
 			{isLoading && 'LOADING'}
@@ -59,7 +57,7 @@ const Skills = () => {
 								className='h-2 w-2 text-custom-green'
 								icon={faArrowRight}
 							/>
-							{skill}
+							{skill.name}
 						</span>
 					</p>
 				))}

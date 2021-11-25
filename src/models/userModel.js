@@ -2,7 +2,12 @@ import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
 	{
-		skills: [{ type: String, unique: true }],
+		skills: [
+			{
+				name: { type: String, unique: true },
+				level: { type: Number, default: 0 },
+			},
+		],
 		socials: [
 			{
 				name: { type: String, required: true },
