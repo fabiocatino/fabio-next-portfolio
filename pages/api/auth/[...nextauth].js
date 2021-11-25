@@ -16,9 +16,7 @@ export default async function auth(req, res) {
 		}),
 		secret: process.env.JWT_SECRET,
 
-		pages: {
-			signIn: '/pages/admin',
-		},
+	
 		callbacks: {
 			async signIn({ account, profile }) {
 				if (account.provider === 'google') {
