@@ -7,9 +7,9 @@ const Admin = ({ providers }) => {
 		<div className='mt-48 self-center input-form'>
 			<GoogleLoginButton
 				GoogleLoginButton
-				onClick={() => signIn(providers?.google.id, { callbackUrl: '/' })}
+				onClick={() => signIn(providers?.google?.id, { callbackUrl: '/' })}
 			>
-				Sign in with {providers?.google.name}
+				Sign in with {providers?.google?.name}
 			</GoogleLoginButton>
 		</div>
 	);
