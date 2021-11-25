@@ -1,5 +1,5 @@
 import { getProviders, signIn } from 'next-auth/react';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 
 const SignIn = ({ providers }) => {
@@ -19,6 +19,7 @@ export default SignIn;
 
 export async function getServerSideProps() {
 	const providers = await getProviders();
+	console.log({providers})
 	return {
 		props: { providers },
 	};
