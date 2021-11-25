@@ -1,24 +1,26 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
 import axios from 'axios';
+import SkillsContext from '../store/SkillsContext';
 
 const Skills = () => {
-	const [skills, setSkills] = useState([]);
-	const [isLoading, setIsLoading] = useState(false);
+	const { dispatch, skills, isLoading } = useContext(SkillsContext);
 
 	const getSkills = useCallback(async () => {
-		setIsLoading(true);
+		// dispatch({ type: 'FETCHING_START' });
+
 		try {
 			const res = await axios.get('/api/get-skills');
 			const {
 				data: { data },
 			} = res;
-			setSkills([...data]);
+
+			dispatch({ type: 'FETCHING_SUCCESS', payload: data });
 		} catch (error) {
+			// dispatch({ type: 'FETCHING_ERROR', payload: error });
 			throw new Error('Something went wrong');
 		}
-
-		setIsLoading(false);
 	}, []);
+	console.log({skills})
 
 	useEffect(() => {
 		getSkills();
@@ -26,9 +28,7 @@ const Skills = () => {
 
 	return (
 		<div className='grid grid-cols-2'>
-			{skills.map((skill, i) => (
-				<p key={i}>{skill}</p>
-			))}
+			{isLoading ? 'LOADING' : skills.map((skill, i) => <p key={i}>{skill}</p>)}
 		</div>
 	);
 };

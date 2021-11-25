@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Portal from '@reach/portal';
+import SkillsContext from '../store/SkillsContext';
 
 const ModalPage = () => {
+	const { skills, dispatch } = useContext(SkillsContext);
 	const [isOpen, setIsOpen] = React.useState(false);
 
 	const toggle = () => {
@@ -14,7 +16,16 @@ const ModalPage = () => {
 
 	const submitHandler = async (e) => {
 		e.preventDefault();
-		await axios.post('/api/add-skill', { skill });
+		dispatch({ type: 'UPLOAD_START' });
+		try {
+			const {
+				data: { data },
+			} = await axios.post('/api/add-skill', { skill });
+			dispatch({ type: 'UPLOAD_SUCCESS', payload: [...skills, data] });
+		} catch (error) {
+			dispatch({ type: 'UPLOAD_ERROR', payload: error });
+			throw new Error('Something went wrong');
+		}
 
 		setValue('');
 		setSkill([]);

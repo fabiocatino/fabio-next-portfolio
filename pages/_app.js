@@ -5,6 +5,8 @@ import '../public/global.css';
 import Layout from '../src/components/Layout/Layout';
 import '../public/nprogress.css';
 import { SessionProvider } from 'next-auth/react';
+import { SkillsContextProvider } from '../src/store/SkillsContext';
+
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 	const router = useRouter();
@@ -19,9 +21,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 		<>
 			{!errorPage ? (
 				<SessionProvider session={session}>
-					<Layout>
-						<Component {...pageProps} />
-					</Layout>
+					<SkillsContextProvider>
+						<Layout>
+							<Component {...pageProps} />
+						</Layout>
+					</SkillsContextProvider>
 				</SessionProvider>
 			) : (
 				<Component {...pageProps} />
