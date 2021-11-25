@@ -3,14 +3,16 @@ import React from 'react';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 
 const Admin = ({ providers }) => {
+	console.log({ providers });
 	return (
 		<div className='mt-48 self-center input-form'>
-			<GoogleLoginButton
+			{console.log({providers}, 'we')}
+			{/* <GoogleLoginButton
 				GoogleLoginButton
 				onClick={() => signIn(providers.google.id, { callbackUrl: '/' })}
 			>
 				Sign in with {providers.google.name}
-			</GoogleLoginButton>
+			</GoogleLoginButton> */}
 		</div>
 	);
 };
