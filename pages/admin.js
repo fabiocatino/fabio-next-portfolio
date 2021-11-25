@@ -7,16 +7,16 @@ const Admin = ({ providers }) => {
 
 	useEffect(() => {
 		setProvider([providers]);
+		console.log(providers);
 	}, [providers]);
-
 	return (
 		<div className='mt-48 self-center input-form'>
-			{provider ? (
+			{provider.length > 0 ? (
 				<GoogleLoginButton
 					GoogleLoginButton
-					onClick={() => signIn(providers?.google?.id, { callbackUrl: '/' })}
+					onClick={() => signIn(providers.google.id, { callbackUrl: '/' })}
 				>
-					Sign in with {providers?.google?.name}
+					Sign in with {providers.google.name}
 				</GoogleLoginButton>
 			) : (
 				'Loading'
@@ -28,7 +28,8 @@ const Admin = ({ providers }) => {
 export default Admin;
 
 export async function getServerSideProps() {
+	const providers = await getProviders();
 	return {
-		props: { providers: await getProviders() },
+		props: { providers },
 	};
 }
