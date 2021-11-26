@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
 	{
+		description: { type: String },
 		skills: [
 			{
 				name: { type: String, unique: true },

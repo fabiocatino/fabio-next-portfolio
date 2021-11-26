@@ -1,85 +1,55 @@
 import Portal from '@reach/portal';
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { skillAtom } from '../store/atoms';
 import Button from './Button';
 
-const ModalPage = () => {
+const DescriptionModal = ({ description }) => {
 	const [isOpen, setIsOpen] = React.useState(false);
-	const { skills } = useRecoilValue(skillAtom);
-	const setSkills = useSetRecoilState(skillAtom);
 
 	const toggle = () => {
 		setIsOpen(!isOpen);
 	};
 
-	const [skill, setSkill] = useState([]);
 	const [value, setValue] = useState('');
 	const submitHandler = async (e) => {
 		e.preventDefault();
-		setSkills((oldSkills) => ({ ...oldSkills, isLoading: true }));
 
-		if (skill.length === 0) return;
 		try {
 			await axios.post('/api/add-skill', { skill });
-			setSkills((oldSkills) => ({
-				...oldSkills,
-				isLoading: false,
-				skills: [...skills, ...skill],
-			}));
 		} catch (error) {
-			setSkills({ error: true });
 			throw new Error('Something went wrong');
 		}
 
 		setValue('');
 		setSkill([]);
 	};
-	const keyDownHandler = (e) => {
-		if (e.keyCode === 32 && value !== '' && skill.length < 5) {
-			setSkill([...skill, { name: e.target.value }]);
-			setValue('');
-		}
-	};
 
 	return (
 		<>
 			<Button size='xl' onClick={toggle}>
-				Add Skills
+				Modify description
 			</Button>
 			<form
 				onSubmit={submitHandler}
 				className='w-full p-4 rounded-md flex flex-col gap-5 flex-wrap items-center'
 			>
 				<Modal isOpen={isOpen} toggle={toggle}>
-					<ModalHeader>Add or remove skills</ModalHeader>
+					<ModalHeader>Change your description</ModalHeader>
 					<ModalBody>
-						<div className='flex flex-col justify-center items-center h-48'>
-							<div className='bg-white min-h-16 w-full p-4 rounded-md  flex flex-wrap'>
-								<div className='flex justify-start items-center gap-2 flex-wrap'>
-									{skill.map((item, i) => (
-										<SkillEl
-											skill={skill}
-											setSkill={setSkill}
-											index={i}
-											key={i}
-										>
-											{item.name}
-										</SkillEl>
-									))}
-								</div>
-								<div className='flex justify-end p-2'>
-									<input
-										onKeyDown={keyDownHandler}
-										onChange={(e) => setValue(e.target.value.trim())}
-										className='rounded-md focus:outline-none focus:ring-0'
-										type='text'
-										placeholder='Insert tag here'
-										value={value}
-									/>
-								</div>
-							</div>
+						<div className='bg-white min-h-16 p-4 rounded-md'>
+							<form action=''>
+								<textarea
+									onChange={(e) => setValue(e.target.value)}
+									className='rounded-md focus:outline-none focus:ring-0 min-h-48 w-full '
+									value={value}
+									name='description'
+									id='description'
+									cols='30'
+									rows='10'
+								>
+									{description}
+								</textarea>
+							</form>
 						</div>
 					</ModalBody>
 					<ModalFooter>
@@ -89,9 +59,8 @@ const ModalPage = () => {
 						>
 							Close
 						</button>
-						{/* <Button className='h-14 w-48'>Add Skills</Button> */}
 						<Button size='lg' onClick={submitHandler} type='submit'>
-							Add Skills
+							Apply
 						</Button>
 					</ModalFooter>
 				</Modal>
@@ -185,19 +154,4 @@ function ModalFooter({ children }) {
 	return <div className={style.footer}>{children}</div>;
 }
 
-const SkillEl = ({ children, index, skill, setSkill }) => {
-	const removeTagHandler = () => {
-		setSkill(skill.filter((_, i) => i !== index));
-	};
-
-	return (
-		<div
-			onClick={removeTagHandler}
-			className='bg-navy-lightest_navy text-custom-green p-2 rounded-sm'
-		>
-			{children}
-		</div>
-	);
-};
-
-export default ModalPage;
+export default DescriptionModal;

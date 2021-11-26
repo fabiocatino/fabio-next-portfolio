@@ -1,26 +1,30 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useCallback, useContext, useEffect } from 'react';
-import SkillsContext from '../store/SkillsContext';
+import { useSession } from 'next-auth/react';
+import React from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { skillAtom } from '../store/atoms';
 import Spinner from './Spinner';
 
 const Skills = () => {
-	const { dispatch, skills, isLoading, error } = useContext(SkillsContext);
-
+	const { data: session } = useSession();
+	const { skills, error, isLoading } = useRecoilValue(skillAtom);
+	const setSkills = useSetRecoilState(skillAtom);
 	const removeSkillHandler = async (e) => {
-		dispatch({ type: 'DELETE_START' });
 		const skill = e.target.innerText;
+
 		try {
+			setSkills((oldSkills) => ({ ...oldSkills, isLoading: true }));
+
 			const updatedSkills = skills.filter((item) => item.name !== skill);
 			await axios.delete('/api/remove-skill', {
 				data: { name: skill },
 			});
 
-			dispatch({ type: 'DELETE_SUCCESS', payload: updatedSkills });
+			setSkills((oldSkills) => ({ ...oldSkills, skills: updatedSkills, isLoading: false }));
 		} catch (error) {
-			console.log(error);
-			dispatch({ type: 'DELETE_ERROR', payload: error });
+			setSkills((oldSkills) => ({ ...oldSkills, error: true }));
 			throw new Error('Something went wrong');
 		}
 	};
@@ -30,11 +34,10 @@ const Skills = () => {
 			{isLoading && <Spinner />}
 			{error && 'Something went wrong.'}
 			{!isLoading &&
-				!error &&
 				skills.map((skill, i) => (
 					<p key={i}>
 						<span
-							onClick={removeSkillHandler}
+							onClick={session ? removeSkillHandler : null}
 							className='flex items-center gap-2 font-mono text-lg'
 						>
 							<FontAwesomeIcon

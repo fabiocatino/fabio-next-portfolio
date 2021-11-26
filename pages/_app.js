@@ -1,12 +1,11 @@
+import { SessionProvider } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import { useEffect } from 'react';
+import { RecoilRoot } from 'recoil';
 import '../public/global.css';
-import Layout from '../src/components/Layout/Layout';
 import '../public/nprogress.css';
-import { SessionProvider } from 'next-auth/react';
-import { SkillsContextProvider } from '../src/store/SkillsContext';
-
+import Layout from '../src/components/Layout/Layout';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 	const router = useRouter();
@@ -21,11 +20,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 		<>
 			{!errorPage ? (
 				<SessionProvider session={session}>
-					<SkillsContextProvider>
+					<RecoilRoot>
 						<Layout>
 							<Component {...pageProps} />
 						</Layout>
-					</SkillsContextProvider>
+					</RecoilRoot>
 				</SessionProvider>
 			) : (
 				<Component {...pageProps} />

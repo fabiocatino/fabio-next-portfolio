@@ -3,13 +3,16 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
+import { useRecoilValue } from 'recoil';
+import { skillAtom } from '../store/atoms';
+import DescriptionModal from './DescriptionModal';
 import ModalPage from './Modal';
 import Skills from './Skills';
-import Button from './Button';
 
 const About = () => {
 	const { setElement, isVisible } = useVisibilityHook();
 	const { data: session } = useSession();
+	const { description } = useRecoilValue(skillAtom);
 
 	return (
 		<section ref={setElement} className='pt-14'>
@@ -27,14 +30,8 @@ const About = () => {
 
 				<div className='grid grid-cols-1 sm:grid-cols-3fr pt-10 gap-10 '>
 					<div className='text-slate text-lg md:text-xl font-semibold'>
-						<p>
-							Hi, I am Fabio <br />
-							Originally, I am from Bari, Italy. I just graduated from the
-							University of West London with a Bachelor’s Degree in Cyber
-							Security and I am passionate about Web Development. Now, I’m
-							looking for an opportunity to further develop my current skill set
-							as a Junior Developer.
-						</p>
+						<p className='pb-5'>{description}</p>
+						<DescriptionModal description={description}></DescriptionModal>
 						<p className='py-5'>Here are some technologies I work with:</p>
 
 						<Skills />
