@@ -5,7 +5,6 @@ export default async function handler(req, res) {
 	await dbConnect();
 
 	if (req.method === 'GET') {
-		console.log(req)
 		try {
 			const user = await User.findOne({ email: process.env.EMAIL_USERNAME });
 			res.status(200).json({
