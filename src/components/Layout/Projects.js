@@ -2,7 +2,8 @@ import { Transition } from '@headlessui/react';
 import Link from 'next/link';
 import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
-import Card from '../Card';
+import Button from '../Button';
+import Cards from '../Cards';
 import SmallCard from '../SmallCard';
 
 const Projects = () => {
@@ -19,7 +20,10 @@ const Projects = () => {
 					enterFrom='transform -translate-y-5 transition opacity-0  duration-1000 ease-in-out'
 					enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
 				>
-					<div ref={setElement} className='flex items-center gap-5 xl:mx-[180px]'>
+					<div
+						ref={setElement}
+						className='flex items-center gap-5 xl:mx-[180px]'
+					>
 						<span className='text-custom-green md:text-4xl font-mono'>02.</span>
 						<p className='navP text-[26px] md:text-4xl font-bold '>
 							My Projects
@@ -27,7 +31,7 @@ const Projects = () => {
 						<span className='self-center w-[100px] md:w-[300px] text-navy-lightest_navy h-[1px] border-t-[1px] relative top-[5px]' />
 					</div>
 					<div className='pt-10'>
-						<Card />
+						<Cards />
 					</div>
 				</Transition>
 			</div>
@@ -64,15 +68,9 @@ const Projects = () => {
 						<SmallCard />
 					</Transition>
 
-					<div className='flex justify-center'>
-						<button
-							className='border border-1 border-custom-green text-custom-green mt-16 p-4 w-40 rounded-md 
-											bg-transparent hover:bg-custom-green-transparent'
-						>
-							Show more
-						</button>
+					<div className='flex justify-center mt-10'>
+						<Button size='lg'>Show more</Button>
 					</div>
-					
 				</div>
 			</div>
 		</section>

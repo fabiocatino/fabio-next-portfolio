@@ -2,6 +2,7 @@ import Portal from '@reach/portal';
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import SkillsContext from '../store/SkillsContext';
+import Button from './Button';
 
 const ModalPage = () => {
 	const { skills, dispatch } = useContext(SkillsContext);
@@ -37,13 +38,9 @@ const ModalPage = () => {
 
 	return (
 		<>
-			<button
-				onClick={toggle}
-				className='flex border rounded-md 
-            border-custom-green text-custom-green h- w-48 items-center  hover:bg-custom-green-transparent  animate-fadedown'
-			>
-				<p className='p-5 '>Add Skills</p>
-			</button>
+			<Button size='xl' onClick={toggle}>
+				Add Skills
+			</Button>
 			<form
 				onSubmit={submitHandler}
 				className='w-full p-4 rounded-md flex flex-col gap-5 flex-wrap items-center'
@@ -85,14 +82,10 @@ const ModalPage = () => {
 						>
 							Close
 						</button>
-						<button
-							onClick={submitHandler}
-							type='submit'
-							className='rounded px-6 py-2  border focus:outline-none m-1.5 font-medium 
-            				border-custom-green text-custom-green items-center  hover:bg-custom-green-transparent'
-						>
-							<p className=''>Add Skills</p>
-						</button>
+						{/* <Button className='h-14 w-48'>Add Skills</Button> */}
+						<Button size='lg' onClick={submitHandler} type='submit'>
+							Add Skills
+						</Button>
 					</ModalFooter>
 				</Modal>
 			</form>

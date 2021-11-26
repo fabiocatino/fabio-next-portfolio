@@ -3,14 +3,15 @@ import Project from '../../src/models/projectModel';
 
 export default async function handler(req, res) {
 	await dbConnect();
-	const { user, name, description, links, images, isFeatured } = req.body;
+	const { user, name, description, gitHub, externalLink, images, isFeatured } = req.body;
 	if (req.method === 'POST') {
 		try {
 			const project = await Project.create({
 				user,
 				name,
 				description,
-				links,
+				gitHub,
+				externalLink,
 				images,
 				isFeatured,
 			});

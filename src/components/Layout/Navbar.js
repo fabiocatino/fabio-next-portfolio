@@ -4,6 +4,7 @@ import { Transition } from '@headlessui/react';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
+import Button from '../Button';
 import { Drawer } from './Drawer';
 
 const Navbar = ({ open, setOpen }) => {
@@ -72,20 +73,12 @@ const Navbar = ({ open, setOpen }) => {
 			{/* RIGHT SIDE */}
 			<Drawer open={open} MenuHandler={MenuHandler} />
 
-			<button
-				className='hidden md:flex ml-7 border rounded-md 
-            border-custom-green text-custom-green h-9 w-20  items-center justify-center hover:bg-custom-green-transparent  animate-fadedown'
-			>
-				<p className='p-5'>CV</p>
-			</button>
+			<Button size='sm'>CV</Button>
+
 			{session && (
-				<button
-					onClick={() => signOut()}
-					className='hidden md:flex ml-7 border rounded-md 
-            border-custom-green text-custom-green h-9 w-20  items-center justify-center hover:bg-custom-green-transparent  animate-fadedown'
-				>
-					<p className='p-5'>Logout</p>
-				</button>
+				<Button size='sm' onClick={() => signOut()}>
+					Logout
+				</Button>
 			)}
 		</div>
 	);

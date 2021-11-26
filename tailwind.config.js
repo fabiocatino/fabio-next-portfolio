@@ -3,43 +3,41 @@ module.exports = {
 	purge: [
 		'./pages/**/*.{js,ts,jsx,tsx}',
 		'./src/components/**/*.{js,ts,jsx,tsx}',
+		'./public/**/*.{js,ts,jsx,tsx}',
 	],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {
-			gridTemplateColumns: { 
-				'3fr': '3fr 2fr'
+			gridTemplateColumns: {
+				'3fr': '3fr 2fr',
 			},
 			screens: {
-				'xxs': '0px',
-				'xs': '480px',
-			},	
+				xxs: '0px',
+				xs: '480px',
+			},
 			keyframes: {
-				'fadedown': {
-					'0%': { opacity: '0',  transform: 'translateY(-20px)'},
-				    '100%': { 	opacity: '1', transform: 'translateY(0)'},
+				fadedown: {
+					'0%': { opacity: '0', transform: 'translateY(-20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
 				},
 				'bounce-in': {
-					'0%': {opacity: '0', transform: 'translateX(2000px)'},
-					'60%': {opacity: '1', transform: 'translateX(-30px)'},
-					'80%': {transform: 'translateX(10px)'},
-					'100%': {transform: 'translateX(0)'},
+					'0%': { opacity: '0', transform: 'translateX(2000px)' },
+					'60%': { opacity: '1', transform: 'translateX(-30px)' },
+					'80%': { transform: 'translateX(10px)' },
+					'100%': { transform: 'translateX(0)' },
 				},
-			
 			},
 			animation: {
-				'fadedown': 'fadedown 1000ms ease',
-				'bounce-in':'bounce-in 1000ms ease'
-			
+				fadedown: 'fadedown 1000ms ease',
+				'bounce-in': 'bounce-in 1000ms ease',
 			},
 			transitionDuration: {
-				'3000': '3000ms',
-			   },
-			   translate: {
-				'2000': '2000px',
+				3000: '3000ms',
+			},
+			translate: {
+				2000: '2000px',
 				'--30': '-30px',
-			
-			   },
+			},
 			colors: {
 				navy: {
 					light: '#112240',
@@ -57,7 +55,7 @@ module.exports = {
 				custom: {
 					white: ' #e6f1ff',
 					green: '#64ffda',
-					'green-transparent': 'rgba(104, 239, 162, 0.2)'
+					'green-transparent': 'rgba(104, 239, 162, 0.2)',
 				},
 			},
 		},

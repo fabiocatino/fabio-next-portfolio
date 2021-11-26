@@ -24,14 +24,6 @@ const Skill = () => {
 				onSubmit={submitHandler}
 				className='w-full p-4 rounded-md flex flex-col gap-5 flex-wrap items-center'
 			>
-				<button
-					type='submit'
-					className='flex ml-7 border rounded-md 
-            border-custom-green text-custom-green h-9 w-28 items-center  hover:bg-custom-green-transparent  animate-fadedown'
-				>
-					<p className='p-5'>Add Skills</p>
-				</button>
-
 				<div className='bg-white min-h-16 w-full p-4 rounded-md  flex flex-wrap'>
 					<div className='flex justify-start items-center gap-2 flex-wrap'>
 						{skill.map((item, i) => (

@@ -5,6 +5,7 @@ import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
 import ModalPage from './Modal';
 import Skills from './Skills';
+import Button from './Button';
 
 const About = () => {
 	const { setElement, isVisible } = useVisibilityHook();
@@ -37,14 +38,7 @@ const About = () => {
 						<p className='py-5'>Here are some technologies I work with:</p>
 
 						<Skills />
-						<div className='pt-10 flex w-full'>
-							<button
-								className=' flex border rounded-md 
-            border-custom-green text-custom-green h-14 w-48 items-center justify-center hover:bg-custom-green-transparent  animate-fadedown'
-							>
-								<p className='p-5 '>Show more</p>
-							</button>
-						</div>
+						<div className='pt-10 flex w-full'></div>
 						{session && (
 							<div className='pt-10 flex w-full'>
 								<ModalPage />

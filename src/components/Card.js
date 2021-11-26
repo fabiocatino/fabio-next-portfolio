@@ -6,13 +6,13 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { Transition } from '@headlessui/react';
 import { useVisibilityHook } from 'react-observer-api';
 
-const Card = () => {
+const Card = (card) => {
 	const { setElement, isVisible } = useVisibilityHook();
-
+	const { description, name, gitHub, externalLink } = card;
 	return (
 		<div ref={setElement}>
 			<Transition show={isVisible}>
-				<div className='grid xs:grid-cols-12 grid-cols-3fr gap-10 min-w-screen'>
+				<div className='grid xs:grid-cols-12 grid-cols-3fr gap-10 min-w-screen  pt-10'>
 					{/* IMAGE/LEFT SECTION */}
 
 					<Transition.Child
@@ -34,7 +34,6 @@ const Card = () => {
 							alt='projectPic'
 							src='/airbnb.png'
 						></Image>
-						{/* </a> */}
 					</Transition.Child>
 
 					{/* RIGHT SECTION */}
@@ -53,7 +52,7 @@ const Card = () => {
 							rel='noreferrer'
 							className='hover:text-custom-green text-slate-lightest font-mono text-2xl md:text-[28px] font-semibold cursor-pointer'
 						>
-							<p>Airbnb Clone</p>
+							<p>{name}</p>
 						</a>
 						{/* MAIN CARD */}
 						<Transition.Child
@@ -62,19 +61,15 @@ const Card = () => {
 							enterTo='transform opacity-1 translate-x-0 duration-1000 ease-in-out'
 						>
 							<div className='xl:min-h-[122px]  md:p-[25px] sm:bg-transparent md:bg-navy-light z-10 opacity-100 rounded-md'>
-								<p className='text-lg text-slate '>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-									neque nihil fugiat debitis optio! Et ipsa amet modi corrupti
-									consectetur.
-								</p>
+								<p className='text-lg text-slate '>{description}</p>
 							</div>
 						</Transition.Child>
 						{/* TAGS */}
-						
+
 						{/* LINKS */}
 						<div className='flex md:justify-end gap-5'>
 							<a
-								href='/'
+								href={gitHub}
 								target='_blank'
 								rel='noreferrer'
 								className='hover:text-custom-green text-slate-lightest text-[28px] font-semibold cursor-pointer'
@@ -85,7 +80,7 @@ const Card = () => {
 								/>
 							</a>
 							<a
-								href='/'
+								href={externalLink}
 								target='_blank'
 								rel='noreferrer'
 								className='hover:text-custom-green text-slate-lightest text-[28px] font-semibold cursor-pointer'
