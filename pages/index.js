@@ -39,7 +39,7 @@ export default Home;
 
 export async function getStaticProps() {
 	const res = await axios.get('https://fabiocatino.com/api/get-skills');
-	const res1 = await axios.get('https://fabiocatino.com/api/user-info');
+	// const res1 = await axios.get('https://127.0.0.1:3000/api/user-info');
 	const {
 		data: { data },
 	} = res;
