@@ -8,13 +8,13 @@ import { useContext, useEffect } from 'react';
 import SkillsContext from '../src/store/SkillsContext';
 import axios from 'axios';
 
-function Home({ sortedData}) {
+function Home() {
 	const { dispatch, skills, isLoading, error } = useContext(SkillsContext);
 
-	useEffect(() => {
-		dispatch({ type: 'FETCHING_SUCCESS', payload: sortedData });
-	}, []);
-	console.log(sortedData);
+	// useEffect(() => {
+	// 	dispatch({ type: 'FETCHING_SUCCESS', payload: sortedData });
+	// }, []);
+	// console.log(sortedData);
 	return (
 		<div>
 			<div className='fixed left-10 w-10 bottom-0 right-auto animate-fadedown'>
@@ -38,14 +38,14 @@ function Home({ sortedData}) {
 
 export default Home;
 
-export async function getStaticProps() {
-	const res = await axios.get('https://fabiocatino.com/api/get-skills');
-	const {
-		data: { data },
-	} = res;
-	const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
+// export async function getStaticProps() {
+// 	const res = await axios.get('https://fabiocatino.com/api/get-skills');
+// 	const {
+// 		data: { data },
+// 	} = res;
+// 	const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
 
-	return {
-		props: { sortedData },
-	};
-}
+// 	return {
+// 		props: { sortedData },
+// 	};
+// }
