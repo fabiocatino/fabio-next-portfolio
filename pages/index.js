@@ -53,6 +53,7 @@ export async function getStaticProps() {
 			notFound: true,
 		};
 	}
+
 	return {
 		props: { sortedData, description, socials },
 		revalidate: 10,
