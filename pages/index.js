@@ -48,11 +48,11 @@ export async function getStaticProps() {
 	} = res1;
 	const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
 
-	if (!data) {
-		return {
-			notFound: true,
-		};
-	}
+	// if (!data) {
+	// 	return {
+	// 		notFound: true,
+	// 	};
+	// }
 	return {
 		props: { sortedData, description, socials },
 		revalidate: 10,
