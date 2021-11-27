@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 	if (req.method === 'GET') {
 		try {
 			const projects = await Project.find({});
-			res.status(200).json({ status: 'success', data: projects });
+			res.status(200).json({ status: 'success', projects: projects });
 		} catch (error) {
 			res.status(400).json({
 				status: 'error',

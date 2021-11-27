@@ -15,7 +15,6 @@ export default async function handler(req, res) {
 			res.status(200).json({ status: 'success', data: skills });
 			user.save();
 		} catch (error) {
-			console.log(error);
 			res.status(400).json({
 				status: 'error',
 				message: "Couldn't add new skills, try again later.",

@@ -4,13 +4,13 @@ import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import React from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { skillAtom } from '../store/atoms';
+import { userAtom } from '../store/atoms';
 import Spinner from './Spinner';
 
 const Skills = () => {
 	const { data: session } = useSession();
-	const { skills, error, isLoading } = useRecoilValue(skillAtom);
-	const setSkills = useSetRecoilState(skillAtom);
+	const { skills, error, isLoading } = useRecoilValue(userAtom);
+	const setSkills = useSetRecoilState(userAtom);
 	const removeSkillHandler = async (e) => {
 		const skill = e.target.innerText;
 

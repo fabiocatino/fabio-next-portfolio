@@ -7,7 +7,7 @@ const projectSchema = new mongoose.Schema(
 		description: { type: String, required: true },
 		gitHub: { type: String },
 		externalLink: { type: String },
-		images: [{ type: String, required: false }],
+		image: { type: String, default: '/project-placeholder-1024x576.jpg' },
 		isFeatured: { type: Boolean, required: true, default: false },
 	},
 	{

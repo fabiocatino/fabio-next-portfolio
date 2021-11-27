@@ -1,70 +1,130 @@
 import Portal from '@reach/portal';
 import axios from 'axios';
+import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { userAtom } from '../store/atoms';
 import Button from './Button';
 
-const DescriptionModal = ({ description }) => {
+const DescriptionModal = () => {
+	const { data: session } = useSession();
 	const [isOpen, setIsOpen] = React.useState(false);
+	const { description, title } = useRecoilValue(userAtom);
+	const setSkills = useSetRecoilState(userAtom);
+	const [newDescription, setNewDescription] = useState('');
+	const [newTitle, setNewTitle] = useState('');
+	const [newGitHub, setNewGitHub] = useState('');
+	const [newInstagram, setNewInstagram] = useState('');
+	const [newFacebook, setNewFacebook] = useState('');
+	const [newLinkedIn, setNewLinkedIn] = useState('');
+	const [newEmail, setNewEmail] = useState('');
 
 	const toggle = () => {
 		setIsOpen(!isOpen);
 	};
 
-	const [value, setValue] = useState('');
 	const submitHandler = async (e) => {
 		e.preventDefault();
-
+		setSkills((oldSkills) => ({ ...oldSkills, isLoading: true }));
 		try {
-			await axios.post('/api/add-skill', { skill });
+			await axios.patch('/api/user-info', {
+				description: newDescription,
+				title,
+			});
+			setSkills((oldSkills) => ({
+				...oldSkills,
+				description: newDescription ?? oldSkills.description,
+				title: newTitle ?? oldSkills.title,
+				isLoading: false,
+			}));
 		} catch (error) {
+			setSkills((oldSkills) => ({ ...oldSkills, error: true }));
 			throw new Error('Something went wrong');
 		}
-
-		setValue('');
-		setSkill([]);
 	};
 
 	return (
 		<>
-			<Button size='xl' onClick={toggle}>
-				Modify description
-			</Button>
-			<form
-				onSubmit={submitHandler}
-				className='w-full p-4 rounded-md flex flex-col gap-5 flex-wrap items-center'
-			>
-				<Modal isOpen={isOpen} toggle={toggle}>
-					<ModalHeader>Change your description</ModalHeader>
-					<ModalBody>
-						<div className='bg-white min-h-16 p-4 rounded-md'>
-							<form action=''>
+			{session && (
+				<Button size='xl' onClick={toggle}>
+					Change title and description
+				</Button>
+			)}
+
+			<Modal isOpen={isOpen} toggle={toggle}>
+				<div className='w-full p-4 rounded-md flex flex-col gap-5 flex-wrap items-center'>
+					<form onSubmit={submitHandler}>
+						<ModalHeader>Change your title</ModalHeader>
+
+						<ModalBody>
+							<div className='bg-white  p-4 rounded-md'>
 								<textarea
-									onChange={(e) => setValue(e.target.value)}
+									onChange={(e) => setNewTitle(e.target.value)}
 									className='rounded-md focus:outline-none focus:ring-0 min-h-48 w-full '
-									value={value}
+									name='title'
+									id='title'
+									cols='20'
+									rows='3'
+									defaultValue={title}
+								></textarea>
+							</div>
+						</ModalBody>
+						<ModalHeader>Change your description</ModalHeader>
+						<ModalBody>
+							<div className='bg-white p-4 rounded-md'>
+								<textarea
+									onChange={(e) => setNewDescription(e.target.value)}
+									className='rounded-md focus:outline-none focus:ring-0 min-h-48 w-full '
 									name='description'
 									id='description'
-									cols='30'
-									rows='10'
-								>
-									{description}
-								</textarea>
-							</form>
+									cols='20'
+									rows='5'
+									defaultValue={description}
+								></textarea>
+							</div>
+						</ModalBody>
+						<ModalHeader>Change your socials and email</ModalHeader>
+						<div className='flex flex-col gap-2 '>
+							<input
+								className='input-form w-full'
+								type='text'
+								placeholder='gitHub'
+							/>
+							<input
+								className='input-form w-full'
+								type='text'
+								placeholder='Instagram'
+							/>
+							<input
+								className='input-form w-full'
+								type='text'
+								placeholder='Facebook'
+							/>
+							<input
+								className='input-form w-full'
+								type='text'
+								placeholder='LinkedIn'
+							/>
+							<input
+								className='input-form w-full'
+								type='email'
+								placeholder='Email'
+							/>
 						</div>
-					</ModalBody>
-					<ModalFooter>
-						<button
-							onClick={toggle}
-							className='text-white focus:outline-none m-1.5 rounded px-6 py-2 font-medium bg-red-500'
-						>
-							Close
-						</button>
-						<Button size='lg' onClick={submitHandler} type='submit'>
-							Apply
-						</Button>
-					</ModalFooter>
-				</Modal>
-			</form>
+					</form>
+				</div>
+				<ModalFooter>
+					<button
+						onClick={toggle}
+						className='text-white focus:outline-none m-1.5 rounded px-6 py-2 font-medium bg-red-500'
+					>
+						Close
+					</button>
+					<Button size='lg' onClick={submitHandler} type='submit'>
+						Apply
+					</Button>
+				</ModalFooter>
+			</Modal>
 		</>
 	);
 };

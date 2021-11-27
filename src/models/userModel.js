@@ -2,10 +2,11 @@ import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
 	{
+		title: { type: String },
 		description: { type: String },
 		skills: [
 			{
-				name: { type: String, unique: true },
+				name: { type: String },
 				level: { type: Number, default: 0 },
 			},
 		],
@@ -13,9 +14,9 @@ const userSchema = new mongoose.Schema(
 			{
 				name: { type: String, required: true },
 				link: { type: String, required: true },
-				required: false,
 			},
 		],
+		email: { type: String },
 		isAdmin: { type: Boolean, required: true, default: false },
 	},
 	{

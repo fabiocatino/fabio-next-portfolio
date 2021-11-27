@@ -4,12 +4,10 @@ import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
 import Button from '../Button';
 import Cards from '../Cards';
-import SmallCard from '../SmallCard';
+import SmallCards from '../SmallCards';
 
 const Projects = () => {
 	const { setElement, isVisible } = useVisibilityHook();
-	const { setElement: setSecondElement, isVisible: isSecondElementVisible } =
-		useVisibilityHook();
 
 	return (
 		<section className='py-28'>
@@ -52,21 +50,8 @@ const Projects = () => {
 					</Link>
 				</div>
 
-				<div ref={setSecondElement}>
-					<Transition
-						show={isSecondElementVisible}
-						enter='transition opacity-0 duration-1000 ease-in-out'
-						enterFrom='transform -translate-y-52 transition opacity-0  duration-2000 ease-in-out'
-						enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
-						className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5'
-					>
-						<SmallCard />
-						<SmallCard />
-						<SmallCard />
-						<SmallCard />
-						<SmallCard />
-						<SmallCard />
-					</Transition>
+				<div>
+					<SmallCards />
 
 					<div className='flex justify-center mt-10'>
 						<Button size='lg'>Show more</Button>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
 import { useRecoilValue } from 'recoil';
-import { skillAtom } from '../store/atoms';
+import { userAtom } from '../store/atoms';
 import DescriptionModal from './DescriptionModal';
 import ModalPage from './Modal';
 import Skills from './Skills';
@@ -12,7 +12,7 @@ import Skills from './Skills';
 const About = () => {
 	const { setElement, isVisible } = useVisibilityHook();
 	const { data: session } = useSession();
-	const { description } = useRecoilValue(skillAtom);
+	const { description } = useRecoilValue(userAtom);
 
 	return (
 		<section ref={setElement} className='pt-14'>
@@ -31,7 +31,7 @@ const About = () => {
 				<div className='grid grid-cols-1 sm:grid-cols-3fr pt-10 gap-10 '>
 					<div className='text-slate text-lg md:text-xl font-semibold'>
 						<p className='pb-5'>{description}</p>
-						<DescriptionModal description={description}></DescriptionModal>
+						<DescriptionModal></DescriptionModal>
 						<p className='py-5'>Here are some technologies I work with:</p>
 
 						<Skills />

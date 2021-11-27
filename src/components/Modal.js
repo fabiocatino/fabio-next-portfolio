@@ -2,13 +2,13 @@ import Portal from '@reach/portal';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { skillAtom } from '../store/atoms';
+import { userAtom } from '../store/atoms';
 import Button from './Button';
 
 const ModalPage = () => {
 	const [isOpen, setIsOpen] = React.useState(false);
-	const { skills } = useRecoilValue(skillAtom);
-	const setSkills = useSetRecoilState(skillAtom);
+	const { skills } = useRecoilValue(userAtom);
+	const setSkills = useSetRecoilState(userAtom);
 
 	const toggle = () => {
 		setIsOpen(!isOpen);

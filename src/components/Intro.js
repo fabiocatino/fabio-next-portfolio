@@ -1,6 +1,9 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
+import { userAtom } from '../store/atoms';
 
 const Intro = () => {
+	const { title } = useRecoilValue(userAtom);
 	return (
 		<section className='space-y-1 min-h-screen flex flex-col justify-center items-start xl:mx-[50px] animate-fadedown'>
 			<h1 className='md:text-lg text-custom-green font-mono '>
@@ -11,12 +14,7 @@ const Intro = () => {
 			</h2>
 			<h2 className='leading-10 md:leading-none text-[40px] md:text-[80px] text-slate font-semibold'>
 				I build things for the web.
-				<p className='text-lg  py-5'>
-					I am a Front-end engineer specialized in JavaScript (React.Js, mainly
-					Next.Js), Redux, Materia-UI, Tailwind CSS. However, I also worked with
-					Django.
-					
-				</p>
+				<p className='text-lg  py-5'>{title}</p>
 			</h2>
 		</section>
 	);

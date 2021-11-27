@@ -1,8 +1,9 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
 
-export const skillAtom = atom({
-	key: 'skillAtom',
+export const userAtom = atom({
+	key: 'userAtomState',
 	default: {
+		title: '',
 		description: '',
 		skills: [],
 		error: false,
@@ -11,11 +12,24 @@ export const skillAtom = atom({
 });
 
 export const projectAtom = atom({
-	key: 'projectAtom',
+	key: 'projectAtomState',
 	default: {
-		description: '',
-		skills: [],
-		error: false,
-		isLoading: false,
+		projects: [],
+	},
+});
+
+export const filteredFeaturedProjects = selector({
+	key: 'filteredProjectAtomState',
+	get: ({ get }) => {
+		const { projects } = get(projectAtom);
+		return projects.filter((item) => item.isFeatured);
+	},
+});
+
+export const otherProjects = selector({
+	key: 'notFilteredProjectAtomState',
+	get: ({ get }) => {
+		const { projects } = get(projectAtom);
+		return projects.filter((item) => !item.isFeatured);
 	},
 });
