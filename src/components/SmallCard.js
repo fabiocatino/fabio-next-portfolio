@@ -5,7 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-const SmallCard = ({ description, externalLink, gitHub, image, name }) => {
+const SmallCard = ({
+	description,
+	externalLink = '/',
+	gitHub = '/',
+	image,
+	name,
+}) => {
 	const [showImage, setShowImage] = useState(false);
 	return (
 		<div

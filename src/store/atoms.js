@@ -61,7 +61,9 @@ export const otherProjects = selector({
 		const projects = get(projectAtom);
 		let unfilteredList = [];
 		for (let i in projects) {
-			unfilteredList.push(projects[i]);
+			if (projects[i]) {
+				unfilteredList.push(projects[i]);
+			}
 		}
 
 		return unfilteredList.filter((item) => !item.isFeatured);
