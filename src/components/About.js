@@ -9,10 +9,10 @@ import DescriptionModal from './DescriptionModal';
 import ModalPage from './Modal';
 import Skills from './Skills';
 
-const About = () => {
+const About = ({description}) => {
 	const { setElement, isVisible } = useVisibilityHook();
 	const { data: session } = useSession();
-	const { description } = useRecoilValue(userAtom);
+	const { description: de2 } = useRecoilValue(userAtom);
 
 	return (
 		<section ref={setElement} className='pt-14' id='about'>

@@ -16,7 +16,6 @@ function Home({ sortedData, description, title, projects }) {
 		setSkills({ skills: sortedData, description, title });
 		setProjects(projects);
 	}, [description, setSkills, sortedData, setProjects, title, projects]);
-	console.log({ projects, description, sortedData });
 
 	return (
 		<div>
@@ -30,9 +29,9 @@ function Home({ sortedData, description, title, projects }) {
 
 			<Intro />
 
-			<About />
+			<About description={description} />
 
-			<Projects />
+			<Projects pro />
 
 			<Contact />
 		</div>
