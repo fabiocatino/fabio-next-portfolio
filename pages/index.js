@@ -16,6 +16,7 @@ function Home({ sortedData, description, title, projects }) {
 		setSkills({ skills: sortedData, description, title });
 		setProjects(projects);
 	}, [description, setSkills, sortedData, setProjects, title, projects]);
+	console.log({ projects, description, sortedData });
 
 	return (
 		<div>
@@ -41,8 +42,6 @@ function Home({ sortedData, description, title, projects }) {
 export default Home;
 
 export async function getStaticProps() {
-	const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-	await delay(3000);
 	const res = await axios.get('https://fabiocatino.com/api/get-skills');
 	const res1 = await axios.get('https://fabiocatino.com/api/user-info');
 	const res2 = await axios.get('https://fabiocatino.com/api/get-projects');
@@ -58,11 +57,11 @@ export async function getStaticProps() {
 
 	const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
 
-	if (!data || !res1 || !res2) {
-		return {
-			notFound: true,
-		};	
-	}
+	// if (!data || !res1 || !res2) {
+	// 	return {
+	// 		notFound: true,
+	// 	};
+	// }
 	return {
 		props: {
 			sortedData: sortedData ?? [],
