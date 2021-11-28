@@ -18,17 +18,20 @@ const Skills = () => {
 			setSkills((oldSkills) => ({ ...oldSkills, isLoading: true }));
 
 			const updatedSkills = skills.filter((item) => item.name !== skill);
-			await axios.delete('/api/remove-skill', {
+			await axios.delete('/api/delete-skill', {
 				data: { name: skill },
 			});
 
-			setSkills((oldSkills) => ({ ...oldSkills, skills: updatedSkills, isLoading: false }));
+			setSkills((oldSkills) => ({
+				...oldSkills,
+				skills: updatedSkills,
+				isLoading: false,
+			}));
 		} catch (error) {
 			setSkills((oldSkills) => ({ ...oldSkills, error: true }));
 			throw new Error('Something went wrong');
 		}
 	};
-
 	return (
 		<div className='grid grid-cols-2'>
 			{isLoading && <Spinner />}

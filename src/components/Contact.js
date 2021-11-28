@@ -6,7 +6,7 @@ const Contact = () => {
 	const { setElement, isVisible } = useVisibilityHook();
 
 	return (
-		<div ref={setElement}>
+		<div id='contact' ref={setElement}>
 			<Transition
 				show={isVisible}
 				enter='transition opacity-0 duration-1000 ease-in-out'

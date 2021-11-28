@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState } from 'react';
 
 const SmallCard = ({ description, externalLink, gitHub, image, name }) => {
 	const [showImage, setShowImage] = useState(false);
-
 	return (
 		<div
 			onMouseEnter={() => setShowImage(true)}
@@ -67,13 +66,7 @@ const SmallCard = ({ description, externalLink, gitHub, image, name }) => {
 							{description}
 						</p>
 					</div>
-					<div className='flex font-mono gap-x-5 mt-2 text-left text-lg text-slate-light font-semibold flex-wrap'>
-						<p className=''>VS Code</p>
-						<p className=''>Atom</p>
-						<p className=''>iTerm2</p>
-						<p className=''>Hyper</p>
-						<p className=''>VS Code</p>
-					</div>
+					<div className='flex font-mono gap-x-5 mt-2 text-left text-lg text-slate-light font-semibold flex-wrap'></div>
 				</div>
 			</div>
 		</div>

@@ -15,7 +15,7 @@ const About = () => {
 	const { description } = useRecoilValue(userAtom);
 
 	return (
-		<section ref={setElement} className='pt-14'>
+		<section ref={setElement} className='pt-14' id='about'>
 			<Transition
 				show={isVisible}
 				enter='transform translate-y-5 transition opacity-0  duration-1000 ease-in-out'

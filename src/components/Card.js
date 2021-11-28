@@ -8,7 +8,8 @@ import { useVisibilityHook } from 'react-observer-api';
 
 const Card = (card) => {
 	const { setElement, isVisible } = useVisibilityHook();
-	const { description, name, gitHub, externalLink } = card;
+	const { description, name, gitHub, externalLink, image, tags } = card;
+
 	return (
 		<div ref={setElement}>
 			<Transition show={isVisible}>
@@ -32,7 +33,7 @@ const Card = (card) => {
 							className='opacity-5 md:hover:scale-105 md:hover:opacity-100 md:opacity-50 transition duration-300 ease-in-out'
 							layout='fill'
 							alt='projectPic'
-							src='/airbnb.png'
+							src={image}
 						></Image>
 					</Transition.Child>
 
@@ -43,7 +44,7 @@ const Card = (card) => {
 							xl:col-start-6 z-10 space-y-5 sm:text-left md:text-right p-5 sm:p-14 md:p-0'
 					>
 						{/* TEXT TOP RIGHT */}
-						<h1 className='text-custom-green md:m-[10px] font-semibold font-mono'>
+						<h1 className='text-custom-green md:m-[10px] font-semibold font-mono '>
 							Featured Project
 						</h1>
 						<a
@@ -65,7 +66,16 @@ const Card = (card) => {
 							</div>
 						</Transition.Child>
 						{/* TAGS */}
-
+						<div className='flex justify-start md:justify-end gap-2 '>
+							{tags.map((tag) => (
+								<p
+									key={tag.name}
+									className='text-mono text-slate text-lg font-semibold'
+								>
+									{tag.name}
+								</p>
+							))}
+						</div>
 						{/* LINKS */}
 						<div className='flex md:justify-end gap-5'>
 							<a

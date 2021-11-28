@@ -32,6 +32,7 @@ export default async function auth(req, res) {
 
 			async session({ session, user }) {
 				session.user.isAdmin = user.isAdmin;
+				session.user._id = user.id;
 				return session;
 			},
 		},

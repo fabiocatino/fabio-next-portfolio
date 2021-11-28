@@ -2,14 +2,18 @@ import { Transition } from '@headlessui/react';
 import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
 import { useRecoilValue } from 'recoil';
-import { otherProjects } from '../store/atoms';
+import { otherProjects, statusAtom } from '../store/atoms';
 import SmallCard from './SmallCard';
+import Spinner from './Spinner';
 
 const SmallCards = () => {
 	const projects = useRecoilValue(otherProjects);
+	const { isLoading, error } = useRecoilValue(statusAtom);
 	const { setElement, isVisible } = useVisibilityHook();
 	return (
 		<div ref={setElement}>
+			{isLoading && <Spinner />}
+			{error && 'Something went wrong.'}
 			<Transition
 				show={isVisible}
 				enter='transition opacity-0 duration-1000 ease-in-out'
@@ -17,9 +21,9 @@ const SmallCards = () => {
 				enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
 				className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5'
 			>
-				{projects.map((project) => (
-					<SmallCard key={project._id} {...project} />
-				))}
+				{!isLoading &&
+					!error &&
+					projects.map((project, i) => <SmallCard key={i} {...project} />)}
 			</Transition>
 		</div>
 	);

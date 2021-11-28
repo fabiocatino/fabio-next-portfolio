@@ -5,7 +5,10 @@ import { userAtom } from '../store/atoms';
 const Intro = () => {
 	const { title } = useRecoilValue(userAtom);
 	return (
-		<section className='space-y-1 min-h-screen flex flex-col justify-center items-start xl:mx-[50px] animate-fadedown'>
+		<section
+			id='intro'
+			className='space-y-1 min-h-screen flex flex-col justify-center items-start xl:mx-[50px] animate-fadedown'
+		>
 			<h1 className='md:text-lg text-custom-green font-mono '>
 				Hi, my name is
 			</h1>

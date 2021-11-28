@@ -9,6 +9,7 @@ const projectSchema = new mongoose.Schema(
 		externalLink: { type: String },
 		image: { type: String, default: '/project-placeholder-1024x576.jpg' },
 		isFeatured: { type: Boolean, required: true, default: false },
+		tags: [{ name: { type: String } }],
 	},
 	{
 		timestamps: true,

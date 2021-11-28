@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	scroll-behavior: smooth;
+}
+
 @layer base {
 	.navBtn {
 		@apply flex space-x-2 hover:text-custom-green hover:scale-105;

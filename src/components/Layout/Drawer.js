@@ -51,17 +51,17 @@ function MenuContainer({ children }) {
 const navLinks = [
 	{
 		id: 1,
-		num: 0o1,
+		num: '01',
 		text: 'About',
 	},
 	{
 		id: 2,
-		num: 0o2,
+		num: '02',
 		text: 'Work',
 	},
 	{
 		id: 3,
-		num: 0o3,
+		num: '03',
 		text: 'Contact',
 	},
 ];

@@ -4,13 +4,14 @@ import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
 import Button from '../Button';
 import Cards from '../Cards';
+import ProjectModal from '../ProjectModal';
 import SmallCards from '../SmallCards';
 
 const Projects = () => {
 	const { setElement, isVisible } = useVisibilityHook();
 
 	return (
-		<section className='py-28'>
+		<section id='projects' className='py-28'>
 			<div ref={setElement} className=''>
 				<Transition
 					show={isVisible}
@@ -58,6 +59,7 @@ const Projects = () => {
 					</div>
 				</div>
 			</div>
+			<ProjectModal />
 		</section>
 	);
 };

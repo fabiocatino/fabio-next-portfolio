@@ -10,7 +10,6 @@ const Layout = ({ children }) => {
 	const [open, setOpen] = useState(false);
 	const { setElement } = useVisibilityHook();
 
-	
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			window.addEventListener('scroll', () => {
@@ -20,7 +19,7 @@ const Layout = ({ children }) => {
 	}, [y]);
 
 	return (
-		<div className='relative bg-navy min-h-screen '>
+		<div className='relative bg-navy min-h-screen scroll-smooth'>
 			<Head>
 				<title>Fabio Catino</title>
 				<link rel='icon' href='/favicon.png' />

@@ -14,8 +14,9 @@ function Home({ sortedData, description, title, projects }) {
 	const setProjects = useSetRecoilState(projectAtom);
 	useEffect(() => {
 		setSkills({ skills: sortedData, description, title });
-		setProjects({ projects });
-	}, [description, setSkills, sortedData, projects, setProjects, title]);
+		setProjects(projects);
+	}, [description, setSkills, sortedData, setProjects, title, projects]);
+
 	return (
 		<div>
 			<div className='fixed left-10 w-10 bottom-0 right-auto animate-fadedown'>
@@ -52,6 +53,7 @@ export async function getStaticProps() {
 	const {
 		data: { projects },
 	} = res2;
+
 	const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
 
 	if (!data || !res1 || !res2) {

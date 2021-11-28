@@ -1,17 +1,27 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { filteredFeaturedProjects } from '../store/atoms';
+import {
+	filteredFeaturedProjects, statusAtom
+} from '../store/atoms';
 import Card from './Card';
+import Spinner from './Spinner';
 
 const Cards = () => {
 	const featuredProjects = useRecoilValue(filteredFeaturedProjects);
+	const { isLoading, error } = useRecoilValue(statusAtom);
 
 	return (
-		<div>
-			{featuredProjects.map((card) => (
-				<Card key={card._id} {...card} />
-			))}
-		</div>
+		<>
+			{isLoading && <Spinner />}
+			{error && 'Something went wrong.'}
+			{!isLoading && !error && (
+				<div>
+					{featuredProjects.map((card, i) => (
+						<Card key={i} {...card} />
+					))}
+				</div>
+			)}
+		</>
 	);
 };
 

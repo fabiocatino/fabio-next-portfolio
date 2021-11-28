@@ -9,18 +9,16 @@ const ModalPage = () => {
 	const [isOpen, setIsOpen] = React.useState(false);
 	const { skills } = useRecoilValue(userAtom);
 	const setSkills = useSetRecoilState(userAtom);
+	const [skill, setSkill] = useState([]);
+	const [value, setValue] = useState('');
 
 	const toggle = () => {
 		setIsOpen(!isOpen);
 	};
 
-	const [skill, setSkill] = useState([]);
-	const [value, setValue] = useState('');
 	const submitHandler = async (e) => {
 		e.preventDefault();
 		setSkills((oldSkills) => ({ ...oldSkills, isLoading: true }));
-
-		if (skill.length === 0) return;
 		try {
 			await axios.post('/api/add-skill', { skill });
 			setSkills((oldSkills) => ({
@@ -29,7 +27,10 @@ const ModalPage = () => {
 				skills: [...skills, ...skill],
 			}));
 		} catch (error) {
-			setSkills({ error: true });
+			setSkills((oldSkills) => ({
+				...oldSkills,
+				error: true,
+			}));
 			throw new Error('Something went wrong');
 		}
 
@@ -42,7 +43,6 @@ const ModalPage = () => {
 			setValue('');
 		}
 	};
-
 	return (
 		<>
 			<Button size='xl' onClick={toggle}>
@@ -89,7 +89,6 @@ const ModalPage = () => {
 						>
 							Close
 						</button>
-						{/* <Button className='h-14 w-48'>Add Skills</Button> */}
 						<Button size='lg' onClick={submitHandler} type='submit'>
 							Add Skills
 						</Button>
