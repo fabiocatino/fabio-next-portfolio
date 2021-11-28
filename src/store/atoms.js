@@ -46,11 +46,9 @@ export const filteredFeaturedProjects = selector({
 	get: ({ get }) => {
 		const projects = get(projectAtom);
 		let filteredList = [];
-
 		for (let i in projects) {
 			filteredList.push(projects[i]);
 		}
-
 		return filteredList.filter((item) => item.isFeatured);
 	},
 });

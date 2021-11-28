@@ -8,7 +8,6 @@ import Spinner from './Spinner';
 
 const SmallCards = () => {
 	const projects = useRecoilValue(otherProjects);
-	console.log(projects)
 	const { isLoading, error } = useRecoilValue(statusAtom);
 	const { setElement, isVisible } = useVisibilityHook();
 	return (
