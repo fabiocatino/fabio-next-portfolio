@@ -41,35 +41,35 @@ function Home({ sortedData, description, title, projects }) {
 
 export default Home;
 
-export async function getStaticProps() {
-	const res = await axios.get('https://fabiocatino.com/api/get-skills');
-	const res1 = await axios.get('https://fabiocatino.com/api/user-info');
-	const res2 = await axios.get('https://fabiocatino.com/api/get-projects');
-	const {
-		data: { data },
-	} = res;
-	const {
-		data: { description, socials, title },
-	} = res1;
-	const {
-		data: { projects },
-	} = res2;
+// export async function getStaticProps() {
+// 	const res = await axios.get('https://fabiocatino.com/api/get-skills');
+// 	const res1 = await axios.get('https://fabiocatino.com/api/user-info');
+// 	const res2 = await axios.get('https://fabiocatino.com/api/get-projects');
+// 	const {
+// 		data: { data },
+// 	} = res;
+// 	const {
+// 		data: { description, socials, title },
+// 	} = res1;
+// 	const {
+// 		data: { projects },
+// 	} = res2;
 
-	const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
+// 	const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
 
-	// if (!data || !res1 || !res2) {
-	// 	return {
-	// 		notFound: true,
-	// 	};
-	// }
-	return {
-		props: {
-			sortedData: sortedData ?? [],
-			description: description ?? '',
-			socials: socials ?? [],
-			title: title ?? '',
-			projects: projects ?? [],
-		},
-		revalidate: 60,
-	};
-}
+// 	// if (!data || !res1 || !res2) {
+// 	// 	return {
+// 	// 		notFound: true,
+// 	// 	};
+// 	// }
+// 	return {
+// 		props: {
+// 			sortedData: sortedData ?? [],
+// 			description: description ?? '',
+// 			socials: socials ?? [],
+// 			title: title ?? '',
+// 			projects: projects ?? [],
+// 		},
+// 		revalidate: 60,
+// 	};
+// }
