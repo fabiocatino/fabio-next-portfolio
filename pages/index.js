@@ -56,11 +56,11 @@ export async function getStaticProps() {
 
 	const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
 
-	if (!data || !res1 || !res2) {
-		return {
-			notFound: true,
-		};
-	}
+	// if (!data || !res1 || !res2) {
+	// 	return {
+	// 		notFound: true,
+	// 	};
+	// }
 	return {
 		props: {
 			sortedData: sortedData ?? [],
