@@ -6,8 +6,8 @@ import { otherProjects, statusAtom } from '../store/atoms';
 import SmallCard from './SmallCard';
 import Spinner from './Spinner';
 
-const SmallCards = () => {
-	const projects = useRecoilValue(otherProjects);
+const SmallCards = ({unfilteredList}) => {
+	// const projects = useRecoilValue(otherProjects);
 	const { isLoading, error } = useRecoilValue(statusAtom);
 	const { setElement, isVisible } = useVisibilityHook();
 	return (
@@ -23,7 +23,7 @@ const SmallCards = () => {
 			>
 				{!isLoading &&
 					!error &&
-					projects.map((project, i) => <SmallCard key={i} {...project} />)}
+					unfilteredList.map((project, i) => <SmallCard key={i} {...project} />)}
 			</Transition>
 		</div>
 	);

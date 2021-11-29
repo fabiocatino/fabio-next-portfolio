@@ -1,15 +1,24 @@
-import axios from 'axios';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
+import User from '../src/models/userModel';
 import About from '../src/components/About';
 import Contact from '../src/components/Contact';
 import Intro from '../src/components/Intro';
 import LeftSidebar from '../src/components/Layout/LeftSidebar';
 import Projects from '../src/components/Layout/Projects';
 import RightSidebar from '../src/components/RightSidebar';
-import { userAtom, projectAtom } from '../src/store/atoms';
+import dbConnect from '../src/lib/dbConnect';
+import { projectAtom, userAtom } from '../src/store/atoms';
+import Project from '../src/models/projectModel';
 
-function Home({ sortedData, description, title, projects }) {
+function Home({
+	sortedData,
+	description,
+	title,
+	projects,
+	filteredList,
+	unfilteredList,
+}) {
 	const setSkills = useSetRecoilState(userAtom);
 	const setProjects = useSetRecoilState(projectAtom);
 	useEffect(() => {
@@ -27,11 +36,11 @@ function Home({ sortedData, description, title, projects }) {
 				<RightSidebar />
 			</div>
 
-			<Intro />
+			<Intro title={title} />
 
 			<About description={description} />
 
-			<Projects projects={projects} />
+			<Projects filteredList={filteredList} unfilteredList={unfilteredList} />
 
 			<Contact />
 		</div>
@@ -40,34 +49,40 @@ function Home({ sortedData, description, title, projects }) {
 
 export default Home;
 
-export async function getServerSideProps() {
-	const res = await axios.get('https://fabiocatino.com/api/get-skills');
-	const res1 = await axios.get('https://fabiocatino.com/api/user-info');
-	const res2 = await axios.get('https://fabiocatino.com/api/get-projects');
-	const {
-		data: { data },
-	} = res;
-	const {
-		data: { description, socials, title },
-	} = res1;
-	const {
-		data: { projects },
-	} = res2;
+export async function getStaticProps() {
+	await dbConnect();
 
-	const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
+	const user = await User.findOne({ email: process.env.EMAIL_USERNAME });
+	const projects = await Project.find({});
 
-	// if (!data || !res1 || !res2) {
-	// 	return {
-	// 		notFound: true,
-	// 	};
-	// }
+	const { description, socials, title, skills } = user;
+	const sortedData = skills.sort((a, b) => (a.level < b.level ? 1 : -1));
+
+	let filteredList = [];
+	let unfilteredList = [];
+
+	for (let i in projects) {
+		filteredList.push(projects[i]);
+		unfilteredList.push(projects[i]);
+	}
+	filteredList = filteredList.filter((item) => item.isFeatured);
+	unfilteredList = unfilteredList.filter((item) => !item.isFeatured);
+
+	if (!user || !projects) {
+		return {
+			notFound: true,
+		};
+	}
 	return {
 		props: {
-			sortedData: sortedData ?? [],
-			description: description ?? '',
-			socials: socials ?? [],
+			sortedData: JSON.parse(JSON.stringify(sortedData)),
+			description,
+			filteredList: JSON.parse(JSON.stringify(filteredList)),
+			unfilteredList: JSON.parse(JSON.stringify(unfilteredList)),
+			socials: JSON.parse(JSON.stringify(socials)),
 			title: title ?? '',
-			projects: projects ?? [],
+			projects: JSON.parse(JSON.stringify(projects)),
 		},
+		revalidate: 60,
 	};
 }

@@ -6,8 +6,8 @@ import {
 import Card from './Card';
 import Spinner from './Spinner';
 
-const Cards = () => {
-	const featuredProjects = useRecoilValue(filteredFeaturedProjects);
+const Cards = ({filteredList}) => {
+	// const featuredProjects = useRecoilValue(filteredFeaturedProjects);
 	const { isLoading, error } = useRecoilValue(statusAtom);
 
 	return (
@@ -16,7 +16,7 @@ const Cards = () => {
 			{error && 'Something went wrong.'}
 			{!isLoading && !error && (
 				<div>
-					{featuredProjects.map((card, i) => (
+					{filteredList.map((card, i) => (
 						<Card key={i} {...card} />
 					))}
 				</div>

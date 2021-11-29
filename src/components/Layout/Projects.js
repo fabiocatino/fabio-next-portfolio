@@ -7,7 +7,7 @@ import Cards from '../Cards';
 import ProjectModal from '../ProjectModal';
 import SmallCards from '../SmallCards';
 
-const Projects = ({projects}) => {
+const Projects = ({ filteredList, unfilteredList }) => {
 	const { setElement, isVisible } = useVisibilityHook();
 
 	return (
@@ -30,7 +30,7 @@ const Projects = ({projects}) => {
 						<span className='self-center w-[100px] md:w-[300px] text-navy-lightest_navy h-[1px] border-t-[1px] relative top-[5px]' />
 					</div>
 					<div className='pt-10'>
-						<Cards />
+						<Cards filteredList={filteredList} />
 					</div>
 				</Transition>
 			</div>
@@ -52,7 +52,7 @@ const Projects = ({projects}) => {
 				</div>
 
 				<div>
-					<SmallCards />
+					<SmallCards unfilteredList={unfilteredList} />
 
 					<div className='flex justify-center mt-10'>
 						<Button size='lg'>Show more</Button>

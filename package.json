@@ -27,7 +27,8 @@
 		"react-social-login-buttons": "^3.6.0",
 		"react-transition-group": "^4.4.2",
 		"recoil": "^0.5.2",
-		"sharp": "^0.29.3"
+		"sharp": "^0.29.3",
+		"swr": "^1.0.1"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.2.6",
