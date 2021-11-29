@@ -2,12 +2,11 @@ import { Transition } from '@headlessui/react';
 import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
 import { useRecoilValue } from 'recoil';
-import { otherProjects, statusAtom } from '../store/atoms';
+import { statusAtom } from '../store/atoms';
 import SmallCard from './SmallCard';
 import Spinner from './Spinner';
 
-const SmallCards = ({unfilteredList}) => {
-	// const projects = useRecoilValue(otherProjects);
+const SmallCards = ({ unfilteredList }) => {
 	const { isLoading, error } = useRecoilValue(statusAtom);
 	const { setElement, isVisible } = useVisibilityHook();
 	return (
@@ -23,7 +22,9 @@ const SmallCards = ({unfilteredList}) => {
 			>
 				{!isLoading &&
 					!error &&
-					unfilteredList.map((project, i) => <SmallCard key={i} {...project} />)}
+					unfilteredList.map((project, i) => (
+						<SmallCard key={i} {...project} />
+					))}
 			</Transition>
 		</div>
 	);

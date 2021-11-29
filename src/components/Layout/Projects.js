@@ -11,7 +11,7 @@ const Projects = ({ filteredList, unfilteredList }) => {
 	const { setElement, isVisible } = useVisibilityHook();
 
 	return (
-		<section id='projects' className='py-28'>
+		<section id='work' className='py-28'>
 			<div ref={setElement} className=''>
 				<Transition
 					show={isVisible}

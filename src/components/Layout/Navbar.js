@@ -58,7 +58,7 @@ const Navbar = ({ open, setOpen }) => {
 						enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
 						style={{ transitionDelay: `${index * 500}ms` }}
 					>
-						<Link href='/#contact' passHref={true}>
+						<Link href={link.href} passHref={true}>
 							<button key={link.id} className='navBtn'>
 								<span className='text-custom-green '>{link.num}</span>
 								<p className='navP'>{link.text}</p>
@@ -73,7 +73,7 @@ const Navbar = ({ open, setOpen }) => {
 				icon={faBars}
 			/>
 			{/* RIGHT SIDE */}
-			<Drawer open={open} MenuHandler={MenuHandler} />
+			<Drawer open={open} setOpen={setOpen} MenuHandler={MenuHandler} />
 
 			<Link href='/cv.pdf' passHref={true}>
 				<a target='_blank' rel='noopener'>
@@ -97,15 +97,18 @@ const navLinks = [
 		id: 1,
 		num: '01',
 		text: 'About',
+		href: '/#about',
 	},
 	{
 		id: 2,
 		num: '02',
 		text: 'Work',
+		href: '/#work',
 	},
 	{
 		id: 3,
 		num: '03',
 		text: 'Contact',
+		href: '/#contact',
 	},
 ];

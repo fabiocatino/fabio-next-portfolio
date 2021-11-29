@@ -1,4 +1,6 @@
-export const Drawer = ({ open, MenuHandler }) => {
+import Link from 'next/link';
+
+export const Drawer = ({ open, setOpen, MenuHandler }) => {
 	return (
 		<div>
 			<Menu className='transition duration-1000 ease-in-out' open={open}>
@@ -11,10 +13,12 @@ export const Drawer = ({ open, MenuHandler }) => {
 				</button>
 				<MenuContainer>
 					{navLinks.map((link) => (
-						<button key={link.id} className={style.item}>
-							<span className='text-custom-green'>{link.num}</span>
-							<p className='navP '>{link.text}</p>
-						</button>
+						<Link key={link.id} href={link.href} passHref={true}>
+							<button onClick={() => setOpen(false)} className={style.item}>
+								<span className='text-custom-green'>{link.num}</span>
+								<p className='navP '>{link.text}</p>
+							</button>
+						</Link>
 					))}
 				</MenuContainer>
 			</Menu>
@@ -53,15 +57,18 @@ const navLinks = [
 		id: 1,
 		num: '01',
 		text: 'About',
+		href: '/#about',
 	},
 	{
 		id: 2,
 		num: '02',
 		text: 'Work',
+		href: '/#work',
 	},
 	{
 		id: 3,
 		num: '03',
 		text: 'Contact',
+		href: '/#contact',
 	},
 ];

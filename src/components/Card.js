@@ -1,9 +1,9 @@
-import React from 'react';
-import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Transition } from '@headlessui/react';
+import Image from 'next/image';
+import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
 
 const Card = (card) => {

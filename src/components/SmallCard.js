@@ -11,6 +11,7 @@ const SmallCard = ({
 	gitHub = '/',
 	image,
 	name,
+	tags,
 }) => {
 	const [showImage, setShowImage] = useState(false);
 	return (
@@ -72,7 +73,12 @@ const SmallCard = ({
 							{description}
 						</p>
 					</div>
-					<div className='flex font-mono gap-x-5 mt-2 text-left text-lg text-slate-light font-semibold flex-wrap'></div>
+
+					<div className='flex font-mono gap-x-5 mt-2 text-left text-lg text-slate font-semibold flex-wrap'>
+						{tags.map((tag) => (
+							<p key={tag.name}>{tag.name}</p>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,9 +1,6 @@
 import React from 'react';
-import { useRecoilValue } from 'recoil';
-import { userAtom } from '../store/atoms';
 
 const Intro = ({title}) => {
-	// const { title } = useRecoilValue(userAtom);
 	return (
 		<section
 			id='intro'
