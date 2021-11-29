@@ -7,7 +7,7 @@ import Cards from '../Cards';
 import ProjectModal from '../ProjectModal';
 import SmallCards from '../SmallCards';
 
-const Projects = () => {
+const Projects = ({projects}) => {
 	const { setElement, isVisible } = useVisibilityHook();
 
 	return (

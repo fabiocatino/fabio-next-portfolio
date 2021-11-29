@@ -31,7 +31,7 @@ function Home({ sortedData, description, title, projects }) {
 
 			<About description={description} />
 
-			<Projects pro />
+			<Projects projects={projects} />
 
 			<Contact />
 		</div>
@@ -40,7 +40,7 @@ function Home({ sortedData, description, title, projects }) {
 
 export default Home;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const res = await axios.get('https://fabiocatino.com/api/get-skills');
 	const res1 = await axios.get('https://fabiocatino.com/api/user-info');
 	const res2 = await axios.get('https://fabiocatino.com/api/get-projects');
@@ -56,11 +56,11 @@ export async function getStaticProps() {
 
 	const sortedData = data.sort((a, b) => (a.level < b.level ? 1 : -1));
 
-	if (!data || !res1 || !res2) {
-		return {
-			notFound: true,
-		};
-	}
+	// if (!data || !res1 || !res2) {
+	// 	return {
+	// 		notFound: true,
+	// 	};
+	// }
 	return {
 		props: {
 			sortedData: sortedData ?? [],
@@ -69,6 +69,5 @@ export async function getStaticProps() {
 			title: title ?? '',
 			projects: projects ?? [],
 		},
-		revalidate: 60,
 	};
 }
