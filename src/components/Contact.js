@@ -1,7 +1,6 @@
 import { Transition } from '@headlessui/react';
 import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
-import Button from './Button';
 
 const Contact = () => {
 	const { setElement, isVisible } = useVisibilityHook();

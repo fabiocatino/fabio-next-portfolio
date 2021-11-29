@@ -10,6 +10,7 @@ import RightSidebar from '../src/components/RightSidebar';
 import dbConnect from '../src/lib/dbConnect';
 import { projectAtom, userAtom } from '../src/store/atoms';
 import Project from '../src/models/projectModel';
+import ScrollToTop from '../src/components/Layout/ScrollToTop';
 
 function Home({
 	sortedData,
@@ -28,7 +29,7 @@ function Home({
 	}, [description, setSkills, sortedData, setProjects, title, projects]);
 
 	return (
-		<div>
+		<div id='back-to-top'>
 			<div className='fixed left-10 w-10 bottom-0 right-auto animate-fadedown'>
 				<LeftSidebar socials={socials} />
 			</div>

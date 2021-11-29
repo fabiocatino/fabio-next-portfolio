@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useVisibilityHook } from 'react-observer-api';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import ScrollToTop from './ScrollToTop';
 
 const Layout = ({ children }) => {
 	const [y, setY] = useState(0);
@@ -51,6 +52,7 @@ const Layout = ({ children }) => {
 			<div className='h-10'>
 				<Footer />
 			</div>
+			<ScrollToTop/>
 		</div>
 	);
 };
