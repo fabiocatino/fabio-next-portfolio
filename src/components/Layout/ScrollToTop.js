@@ -17,7 +17,6 @@ const ScrollToTop = () => {
 				}
 			});
 		}
-		console.log(visible);
 	}, [visible]);
 
 	return (
