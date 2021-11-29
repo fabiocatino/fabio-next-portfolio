@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
 	return (
-		<div className='py-10 w-full absolute bottom-0 text-white'>
+		<div className='4xsm:px-4 3xsm:px-5 px-0 py-10 w-full absolute bottom-0 text-white'>
 			<div className='flex justify-center text-slate text-xs font-semibold font-mono'>
 				<div
 					className=' hover:text-custom-green 

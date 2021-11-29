@@ -12,7 +12,9 @@ module.exports = {
 				'3fr': '3fr 2fr',
 			},
 			screens: {
-				xxs: '0px',
+				'4xsm': '320px',
+				'3xsm': '360px',
+				xxs: '374px',
 				xs: '480px',
 			},
 			keyframes: {

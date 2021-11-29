@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
 	}, [y]);
 
 	return (
-		<div className='relative bg-navy min-h-screen  scroll-smooth'>
+		<div className='relative bg-navy min-h-screen scroll-smooth'>
 			<Head>
 				<title>Fabio Catino</title>
 				<link rel='icon' href='/favicon.png' />

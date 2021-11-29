@@ -12,7 +12,7 @@ const About = ({description}) => {
 	const { data: session } = useSession();
 
 	return (
-		<section ref={setElement} className='sm:pt-14' id='about'>
+		<section ref={setElement} className='4xsm:pt-14 3xsm:pt-0' id='about'>
 			<Transition
 				show={isVisible}
 				enter='transform translate-y-5 transition opacity-0  duration-1000 ease-in-out'
