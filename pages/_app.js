@@ -6,6 +6,7 @@ import { RecoilRoot } from 'recoil';
 import '../public/global.css';
 import '../public/nprogress.css';
 import Layout from '../src/components/Layout/Layout';
+import Script from 'next/script'
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 	const router = useRouter();
@@ -18,6 +19,23 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
 	return (
 		<>
+			<Script
+				id='ga'
+				strategy='lazyOnload'
+				src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA}`}
+			/>
+
+			<Script id='ga1' strategy='lazyOnload'>
+				{`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA}', {
+              page_path: window.location.pathname,
+            });
+                `}
+			</Script>
+
 			{!errorPage ? (
 				<SessionProvider session={session}>
 					<RecoilRoot>
