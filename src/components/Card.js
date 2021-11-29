@@ -13,7 +13,7 @@ const Card = (card) => {
 	return (
 		<div ref={setElement}>
 			<Transition show={isVisible}>
-				<div className='grid xs:grid-cols-12 grid-cols-3fr gap-10 min-w-screen  pt-10'>
+				<div className='grid xs:grid-cols-12 grid-cols-3fr gap-10 min-w-screen pt-10 relative'>
 					{/* IMAGE/LEFT SECTION */}
 
 					<Transition.Child
@@ -21,7 +21,7 @@ const Card = (card) => {
 						enter='transition opacity-0 duration-1000 ease-in-out'
 						enterFrom='transform -translate-y-5 sm:translate-y-2000 transition  duration-1000 ease-in-out'
 						enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
-						className='h-[362px] min-w[200px] z-[1] border-1 border-black shadow-xl col-end-[-1]
+						className='min-h-[362px] min-w[200px] z-[1] border-1 border-black shadow-xl col-end-[-1]
 						md:col-end-[9] row-span-full mix-blend-screen md:bg-custom-green 
 						filter md:brightness-50 hover:brightness-100 col-start-1 xl:col-end-[7] cursor-pointer relative
 						hover:text-custom-green text-slate-lightest text-right text-[28px] font-semibold'
@@ -63,7 +63,7 @@ const Card = (card) => {
 							</div>
 						</Transition.Child>
 						{/* TAGS */}
-						<div className='flex justify-start md:justify-end gap-2 '>
+						<div className='flex justify-start md:justify-end gap-2 flex-wrap'>
 							{tags.map((tag) => (
 								<p
 									key={tag.name}
@@ -74,12 +74,12 @@ const Card = (card) => {
 							))}
 						</div>
 						{/* LINKS */}
-						<div className='flex md:justify-end gap-5'>
+						<div className='flex  md:justify-end gap-5 '>
 							<a
 								href={gitHub}
 								target='_blank'
 								rel='noreferrer'
-								className='hover:text-custom-green text-slate-lightest text-[28px] font-semibold cursor-pointer'
+								className='hover:text-custom-green text-slate-lightest text-[28px] font-semibold cursor-pointer absolute sm:flex  bottom-2'
 							>
 								<FontAwesomeIcon
 									className='h-5 w-5 text-custom-white'
@@ -90,7 +90,7 @@ const Card = (card) => {
 								href={externalLink}
 								target='_blank'
 								rel='noreferrer'
-								className='hover:text-custom-green text-slate-lightest text-[28px] font-semibold cursor-pointer'
+								className='hover:text-custom-green text-slate-lightest text-[28px] font-semibold cursor-pointer absolute sm:flex  bottom-2 left-14'
 							>
 								<FontAwesomeIcon
 									className='h-5 w-5 text-custom-white'
