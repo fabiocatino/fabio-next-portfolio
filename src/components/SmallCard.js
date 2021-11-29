@@ -26,8 +26,8 @@ const SmallCard = ({
 			>
 				<Image height={300} width={400} src={image} alt={name} />
 			</div>
-			<div className='w-screenflex bg-navy-light p-5 mt-10 hover:scale-105 transition duration-300 ease-out cursor-pointer rounded-md shadow-md '>
-				<div className='h-full p-5 '>
+			<div className='bg-navy-light p-5 mt-10 hover:scale-105 transition duration-300 ease-out cursor-pointer rounded-md shadow-md'>
+				<div className='h-72 p-5'>
 					<div className='flex justify-between items-center py-2'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
@@ -74,7 +74,7 @@ const SmallCard = ({
 						</p>
 					</div>
 
-					<div className='flex font-mono gap-x-5 mt-2 text-left text-lg text-slate font-semibold flex-wrap'>
+					<div className='flex font-mono gap-x-5 mt-2 text-left text-base text-slate font-semibold flex-wrap'>
 						{tags.map((tag) => (
 							<p key={tag.name}>{tag.name}</p>
 						))}

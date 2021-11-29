@@ -63,7 +63,7 @@ const Card = (card) => {
 							</div>
 						</Transition.Child>
 						{/* TAGS */}
-						<div className='flex justify-start md:justify-end gap-2 flex-wrap'>
+						<div className='flex justify-start md:justify-end gap-2 flex-wrap '>
 							{tags.map((tag) => (
 								<p
 									key={tag.name}
@@ -74,12 +74,12 @@ const Card = (card) => {
 							))}
 						</div>
 						{/* LINKS */}
-						<div className='flex  md:justify-end gap-5 '>
+						<div className='flex md:justify-end gap-5 flex-1 items-end pt-5'>
 							<a
 								href={gitHub}
 								target='_blank'
 								rel='noreferrer'
-								className='hover:text-custom-green text-slate-lightest text-[28px] font-semibold cursor-pointer absolute sm:flex  bottom-2'
+								className='hover:text-custom-green text-slate-lightest text-[28px] font-semibold cursor-pointer'
 							>
 								<FontAwesomeIcon
 									className='h-5 w-5 text-custom-white'
@@ -90,7 +90,7 @@ const Card = (card) => {
 								href={externalLink}
 								target='_blank'
 								rel='noreferrer'
-								className='hover:text-custom-green text-slate-lightest text-[28px] font-semibold cursor-pointer absolute sm:flex  bottom-2 left-14'
+								className='hover:text-custom-green text-slate-lightest text-[28px] font-semibold cursor-pointer'
 							>
 								<FontAwesomeIcon
 									className='h-5 w-5 text-custom-white'

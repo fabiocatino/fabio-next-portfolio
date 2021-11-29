@@ -76,7 +76,7 @@ const Navbar = ({ open, setOpen }) => {
 			<Drawer open={open} setOpen={setOpen} MenuHandler={MenuHandler} />
 
 			<Link href='/cv.pdf' passHref={true}>
-				<a target='_blank' rel='noopener'>
+				<a className='px-5' target='_blank' rel='noopener'>
 					<Button size='sm'>CV</Button>
 				</a>
 			</Link>

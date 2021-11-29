@@ -20,6 +20,9 @@ html {
 	.input-form {
 		@apply h-10 w-72 rounded-md p-5 focus:outline-none focus:ring-4 focus:ring-offset-navy-dark;
 	}
+	.contact-btn {
+		@apply h-14 w-40 md:flex border rounded-md border-custom-green text-custom-green  items-center justify-center hover:bg-custom-green-transparent  animate-fadedown;
+	}
 }
 
 @layer utilities {

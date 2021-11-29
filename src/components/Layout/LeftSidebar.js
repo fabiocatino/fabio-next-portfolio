@@ -46,14 +46,14 @@ const SocialLinks = ({ socials }) => {
 			<ul className='list-none'>
 				{socials.map((social) => {
 					let icon;
-					if (social.name === 'Facebook') {
-						icon = faFacebookSquare;
+					if (social.name === 'LinkedIn') {
+						icon = faLinkedinIn;
 					} else if (social.name === 'gitHub') {
 						icon = faGithub;
-					} else if (social.name === 'instagram') {
+					} else if (social.name === 'Instagram') {
 						icon = faInstagram;
-					} else if (social.name === 'linkedIn') {
-						icon = faLinkedinIn;
+					} else if (social.name === 'Facebook') {
+						icon = faFacebookSquare;
 					}
 					return (
 						<Link key={social._id} href={social.link}>
