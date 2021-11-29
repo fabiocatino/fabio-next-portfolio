@@ -40,7 +40,7 @@ const Projects = ({ filteredList, unfilteredList }) => {
 					<h2 className='text-[32px] text-slate-lightest pb-2'>
 						Other Projects
 					</h2>
-					<Link passHref={true} href='/'>
+					{/* <Link passHref={true} href='/'>
 						<a
 							target='_blank'
 							rel='noreferrer'
@@ -48,7 +48,7 @@ const Projects = ({ filteredList, unfilteredList }) => {
 						>
 							view the archive
 						</a>
-					</Link>
+					</Link> */}
 				</div>
 
 				<div>

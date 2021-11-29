@@ -31,13 +31,12 @@ html {
 	}
 	/* width */
 	::-webkit-scrollbar {
-		width: 8px;
+		width: 10px;
 	}
 
 	/* Track */
 	::-webkit-scrollbar-track {
 		background: #0a192f;
-		border-radius: 10px;
 	}
 
 	/* Handle */
