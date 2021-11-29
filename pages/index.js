@@ -18,6 +18,7 @@ function Home({
 	projects,
 	filteredList,
 	unfilteredList,
+	socials,
 }) {
 	const setSkills = useSetRecoilState(userAtom);
 	const setProjects = useSetRecoilState(projectAtom);
@@ -29,7 +30,7 @@ function Home({
 	return (
 		<div>
 			<div className='fixed left-10 w-10 bottom-0 right-auto animate-fadedown'>
-				<LeftSidebar />
+				<LeftSidebar socials={socials} />
 			</div>
 
 			<div className='fixed right-10 w-10 bottom-0 left-auto animate-fadedown'>

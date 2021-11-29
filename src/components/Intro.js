@@ -4,7 +4,7 @@ const Intro = ({title}) => {
 	return (
 		<section
 			id='intro'
-			className='space-y-1 min-h-screen flex flex-col justify-center items-start xl:mx-[50px] animate-fadedown'
+			className='space-y-1 h-[550px] sm:min-h-screen flex flex-col justify-center items-start xl:mx-[50px] animate-fadedown'
 		>
 			<h1 className='md:text-lg text-custom-green font-mono '>
 				Hi, my name is

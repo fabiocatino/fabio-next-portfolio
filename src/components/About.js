@@ -3,8 +3,6 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React from 'react';
 import { useVisibilityHook } from 'react-observer-api';
-import { useRecoilValue } from 'recoil';
-import { userAtom } from '../store/atoms';
 import DescriptionModal from './DescriptionModal';
 import ModalPage from './Modal';
 import Skills from './Skills';
@@ -12,10 +10,9 @@ import Skills from './Skills';
 const About = ({description}) => {
 	const { setElement, isVisible } = useVisibilityHook();
 	const { data: session } = useSession();
-	const { description: de } = useRecoilValue(userAtom);
 
 	return (
-		<section ref={setElement} className='pt-14' id='about'>
+		<section ref={setElement} className='sm:pt-14' id='about'>
 			<Transition
 				show={isVisible}
 				enter='transform translate-y-5 transition opacity-0  duration-1000 ease-in-out'

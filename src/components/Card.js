@@ -17,10 +17,7 @@ const Card = (card) => {
 					{/* IMAGE/LEFT SECTION */}
 
 					<Transition.Child
-						as='a'
-						href='/'
-						target='_blank'
-						rel='noreferrer'
+						as='div'
 						enter='transition opacity-0 duration-1000 ease-in-out'
 						enterFrom='transform -translate-y-5 sm:translate-y-2000 transition  duration-1000 ease-in-out'
 						enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
