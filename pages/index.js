@@ -29,7 +29,7 @@ function Home({
 	}, [description, setSkills, sortedData, setProjects, title, projects]);
 
 	return (
-		<div id='back-to-top'>
+		<div >
 			<div className='fixed left-10 w-10 bottom-0 right-auto animate-fadedown'>
 				<LeftSidebar socials={socials} />
 			</div>

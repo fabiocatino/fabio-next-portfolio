@@ -23,7 +23,7 @@ const ScrollToTop = () => {
 		<>
 			{visible ? (
 				<button
-					onClick={() => router.push('/#back-to-top')}
+					onClick={() => router.push('/#')}
 					className='z-10 flex h-10 w-10 p-2 bg-custom-green rounded-full fixed bottom-5 4xsm:right-2 right-24  justify-center items-center shadow-lg'
 				>
 					<FontAwesomeIcon className='h-5' icon={faArrowUp} />
