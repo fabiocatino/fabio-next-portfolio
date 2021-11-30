@@ -19,7 +19,7 @@ const Card = (card) => {
 					<Transition.Child
 						as='div'
 						enter='transition opacity-0 duration-1000 ease-in-out'
-						enterFrom='transform -translate-y-5 sm:translate-y-2000 transition  duration-1000 ease-in-out'
+						enterFrom='transform -translate-y-5 transition opacity-0  duration-1000 ease-in-out'
 						enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
 						className='min-h-[362px] min-w[200px] z-[1] border-1 border-black shadow-xl col-end-[-1]
 						md:col-end-[9] row-span-full mix-blend-screen md:bg-custom-green 
@@ -54,9 +54,9 @@ const Card = (card) => {
 						</a>
 						{/* MAIN CARD */}
 						<Transition.Child
-							enter='transform transition duration-1000 ease-in-out'
-							enterFrom='transform opacity-1  sm:translate-x-2000  duration-1000 ease-in-out'
-							enterTo='transform opacity-1 translate-x-0 duration-1000 ease-in-out'
+							enter='transition opacity-0 duration-1000 ease-in-out'
+							enterFrom='transform -translate-y-5 transition opacity-0  duration-1000 ease-in-out'
+							enterTo='opacity-100 translate-y-0 transform duration-1000 ease-in-out'
 						>
 							<div className='xl:min-h-[122px]  md:p-[25px] sm:bg-transparent md:bg-navy-light z-10 opacity-100 rounded-md'>
 								<p className='text-lg text-slate '>{description}</p>
