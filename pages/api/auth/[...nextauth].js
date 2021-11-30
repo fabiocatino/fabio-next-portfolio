@@ -17,7 +17,7 @@ export default async function auth(req, res) {
 		secret: process.env.JWT_SECRET,
 
 		pages: {
-			signIn: '/pages/admin',
+			signIn: '/admin',
 		},
 		callbacks: {
 			async signIn({ account, profile }) {
