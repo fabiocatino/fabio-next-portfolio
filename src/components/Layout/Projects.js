@@ -54,9 +54,9 @@ const Projects = ({ filteredList, unfilteredList }) => {
 				<div>
 					<SmallCards unfilteredList={unfilteredList} />
 
-					<div className='flex justify-center mt-10'>
+					{/* <div className='flex justify-center mt-10'>
 						<Button size='lg'>Show more</Button>
-					</div>
+					</div> */}
 				</div>
 			</div>
 			<ProjectModal />
