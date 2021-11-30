@@ -27,8 +27,8 @@ const SmallCard = ({
 			>
 				<Image height={300} width={400} src={image} alt={name} />
 			</div>
-			<div className='bg-navy-light p-5 mt-10 hover:scale-105 transition duration-300 ease-out cursor-pointer rounded-md shadow-md'>
-				<div className='h-72 p-5'>
+			<div className='bg-navy-light p-5 mt-10 hover:scale-105 transition duration-300 ease-out cursor-pointer rounded-md shadow-md '>
+				<div className='min-h-72 xs:h-72 p-5'>
 					<div className='flex justify-between items-center py-2'>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
