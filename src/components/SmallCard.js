@@ -1,5 +1,9 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+	faExternalLinkAlt,
+	faEye,
+	faEyeSlash
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,10 +19,7 @@ const SmallCard = ({
 }) => {
 	const [showImage, setShowImage] = useState(false);
 	return (
-		<div
-			onMouseEnter={() => setShowImage(true)}
-			onMouseLeave={() => setShowImage(false)}
-		>
+		<div onClick={() => setShowImage(!showImage)}>
 			<div
 				className={`${
 					showImage ? 'animate-fadedown ease-in-out' : 'hidden'
@@ -40,6 +41,7 @@ const SmallCard = ({
 							<title>Folder</title>
 							<path d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'></path>
 						</svg>
+
 						<div className='flex gap-2  text-custom-white'>
 							<Link href={gitHub} passHref={true}>
 								<a
@@ -67,6 +69,13 @@ const SmallCard = ({
 							</Link>
 						</div>
 					</div>
+					<button className='text-custom-green flex gap-5 items-center pt-2'>
+						{showImage ? 'Hide preview' : 'Show preview'}
+						<FontAwesomeIcon
+							className='h-5 w-10 navBtn'
+							icon={showImage ? faEye : faEyeSlash}
+						/>
+					</button>
 					<div className='mt-5 '>
 						<h1 className='text-xl text-slate-light mb-5'>{name}</h1>
 						<p className='text-base text-slate font-semibold my-5'>

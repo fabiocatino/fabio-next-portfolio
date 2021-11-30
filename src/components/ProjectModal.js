@@ -73,9 +73,11 @@ const ProjectModal = () => {
 	return (
 		<>
 			{session && (
-				<Button size='xl' onClick={toggle}>
-					Add Project
-				</Button>
+				<div className='mt-5'>
+					<Button size='xl' onClick={toggle}>
+						Add Project
+					</Button>
+				</div>
 			)}
 
 			<Modal isOpen={isOpen} toggle={toggle}>
