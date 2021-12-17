@@ -3,16 +3,16 @@ import dbConnect from '../../src/lib/dbConnect';
 import User from '../../src/models/UserModel';
 
 export default async function handler(req, res) {
-	// const session = await getSession({ req });
-	// const {
-	// 	user: { _id },
-	// } = session;
+	const session = await getSession({ req });
+	const {
+		user: { _id },
+	} = session;
 	await dbConnect();
 	const { name, link, startDate, endDate, roles, duties } = req.body;
 	if (req.method === 'POST') {
 		try {
 			const user = await User.findOneAndUpdate(
-				{ _id: '619f6d245e2c77d9c0052c62' },
+				{ _id: _id },
 				{
 					$addToSet: {
 						jobs: [
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
 			console.log(error);
 			res.status(400).json({
 				status: 'error',
-				message: "Couldn't create a new project, try again later.",
+				message: "Couldn't add new experience, try again later.",
 			});
 		}
 	}
