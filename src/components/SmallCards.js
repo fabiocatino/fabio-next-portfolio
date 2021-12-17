@@ -9,6 +9,7 @@ import Spinner from './Spinner';
 const SmallCards = ({ unfilteredList }) => {
 	const { isLoading, error } = useRecoilValue(statusAtom);
 	const { setElement, isVisible } = useVisibilityHook();
+
 	return (
 		<div ref={setElement}>
 			{isLoading && <Spinner />}

@@ -7,7 +7,7 @@ import DescriptionModal from './DescriptionModal';
 import ModalPage from './Modal';
 import Skills from './Skills';
 
-const About = ({description}) => {
+const About = ({ description }) => {
 	const { setElement, isVisible } = useVisibilityHook();
 	const { data: session } = useSession();
 

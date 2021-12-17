@@ -2,7 +2,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
 	faExternalLinkAlt,
 	faEye,
-	faEyeSlash
+	faEyeSlash,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
@@ -18,6 +18,7 @@ const SmallCard = ({
 	tags,
 }) => {
 	const [showImage, setShowImage] = useState(false);
+
 	return (
 		<div onClick={() => setShowImage(!showImage)}>
 			<div

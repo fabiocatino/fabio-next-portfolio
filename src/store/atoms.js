@@ -8,6 +8,7 @@ export const userAtom = atom({
 		skills: [],
 		error: false,
 		isLoading: false,
+		jobs: [],
 	},
 });
 

@@ -18,6 +18,7 @@ const Skill = () => {
 			setValue('');
 		}
 	};
+
 	return (
 		<div className='flex flex-col justify-center items-center mt-56'>
 			<form

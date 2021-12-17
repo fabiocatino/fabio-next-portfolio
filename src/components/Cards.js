@@ -4,7 +4,7 @@ import { statusAtom } from '../store/atoms';
 import Card from './Card';
 import Spinner from './Spinner';
 
-const Cards = ({filteredList}) => {
+const Cards = ({ filteredList }) => {
 	const { isLoading, error } = useRecoilValue(statusAtom);
 
 	return (

@@ -11,9 +11,11 @@ import dbConnect from '../src/lib/dbConnect';
 import { projectAtom, userAtom } from '../src/store/atoms';
 import Project from '../src/models/projectModel';
 import ScrollToTop from '../src/components/Layout/ScrollToTop';
+import Jobs from '../src/components/Jobs';
 
 function Home({
 	sortedData,
+	sortedJobs,
 	description,
 	title,
 	projects,
@@ -24,12 +26,20 @@ function Home({
 	const setSkills = useSetRecoilState(userAtom);
 	const setProjects = useSetRecoilState(projectAtom);
 	useEffect(() => {
-		setSkills({ skills: sortedData, description, title });
+		setSkills({ skills: sortedData, description, title, jobs: sortedJobs });
 		setProjects(projects);
-	}, [description, setSkills, sortedData, setProjects, title, projects]);
+	}, [
+		description,
+		setSkills,
+		sortedData,
+		setProjects,
+		title,
+		projects,
+		sortedJobs,
+	]);
 
 	return (
-		<div >
+		<div>
 			<div className='fixed left-10 w-10 bottom-0 right-auto animate-fadedown'>
 				<LeftSidebar socials={socials} />
 			</div>
@@ -41,6 +51,8 @@ function Home({
 			<Intro title={title} />
 
 			<About description={description} />
+
+			<Jobs sortedJobs={sortedJobs} />
 
 			<Projects filteredList={filteredList} unfilteredList={unfilteredList} />
 
@@ -57,8 +69,9 @@ export async function getStaticProps() {
 	const user = await User.findOne({ email: process.env.EMAIL_USERNAME });
 	const projects = await Project.find({});
 
-	const { description, socials, title, skills } = user;
+	const { description, socials, title, skills, jobs } = user;
 	const sortedData = skills.sort((a, b) => (a.level < b.level ? 1 : -1));
+	const sortedJobs = jobs.sort((a, b) => (a.addedAt < b.addedAt ? 1 : -1));
 
 	let filteredList = [];
 	let unfilteredList = [];
@@ -78,6 +91,7 @@ export async function getStaticProps() {
 	return {
 		props: {
 			sortedData: JSON.parse(JSON.stringify(sortedData)),
+			sortedJobs: JSON.parse(JSON.stringify(sortedJobs)),
 			description,
 			filteredList: JSON.parse(JSON.stringify(filteredList)),
 			unfilteredList: JSON.parse(JSON.stringify(unfilteredList)),

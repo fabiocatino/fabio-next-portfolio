@@ -14,10 +14,12 @@ const Layout = ({ children }) => {
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			window.addEventListener('scroll', () => {
-				setY(window.scrollY);
+				if (window.scrollY === 0) {
+					setY(window.scrollY);
+				} else setY(100);
 			});
 		}
-	}, [y]);
+	}, []);
 
 	return (
 		<div className='relative bg-navy min-h-screen scroll-smooth'>

@@ -62,12 +62,18 @@ const navLinks = [
 	{
 		id: 2,
 		num: '02',
-		text: 'Work',
-		href: '/#work',
+		text: 'Experience',
+		href: '/#jobs',
 	},
 	{
 		id: 3,
 		num: '03',
+		text: 'Work',
+		href: '/#work',
+	},
+	{
+		id: 4,
+		num: '04',
 		text: 'Contact',
 		href: '/#contact',
 	},

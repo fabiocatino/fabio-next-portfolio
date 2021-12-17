@@ -4,6 +4,17 @@ const userSchema = new mongoose.Schema(
 	{
 		title: { type: String },
 		description: { type: String },
+		jobs: [
+			{
+				name: { type: String },
+				link: { type: String },
+				startDate: { type: String },
+				endDate: { type: String, default: 'Present' },
+				role: { type: String },
+				duties: [{ name: { type: String } }],
+				addedAt: { type: Date, default: Date.now },
+			},
+		],
 		skills: [
 			{
 				name: { type: String },
