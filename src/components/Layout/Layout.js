@@ -1,15 +1,15 @@
-import { Transition } from "@headlessui/react";
-import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { useVisibilityHook } from "react-observer-api";
+
 import Footer from "./Footer";
+import Head from "next/head";
 import Navbar from "./Navbar";
 import ScrollToTop from "./ScrollToTop";
+import { useInView } from "react-intersection-observer";
 
 const Layout = ({ children }) => {
   const [y, setY] = useState(0);
   const [open, setOpen] = useState(false);
-  const { setElement } = useVisibilityHook();
+  const { ref, inView } = useInView();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -21,6 +21,8 @@ const Layout = ({ children }) => {
     }
   }, []);
 
+  console.log(inView);
+
   return (
     <div className="relative bg-navy min-h-screen scroll-smooth">
       <Head>
@@ -30,18 +32,15 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <div ref={setElement}>
-        <Transition
-          show={y === 0 && true}
-          enter="transition opacity-0 duration-2000 ease-in-out delay-300"
-          enterFrom="transform -translate-y-25 "
-          enterTo="opacity-100 translate-y-0"
-          leave="transition-opacity duration-2000 ease-in-out bg-red-500 delay-1000"
-          leaveFrom="opacity-100 transform translate-y-0"
-          leaveTo="opacity-0 -translate-y-5"
-        >
-          <Navbar open={open} setOpen={setOpen} />
-        </Transition>
+      <div
+        ref={ref}
+        className={
+          inView
+            ? `transition-opacity duration-500 ease-in-out opacity-100 transform translate-y-0`
+            : `transition opacity-0 duration-1000 ease-in-out transform -translate-y-25 `
+        }
+      >
+        <Navbar open={open} setOpen={setOpen} />
       </div>
 
       <main
