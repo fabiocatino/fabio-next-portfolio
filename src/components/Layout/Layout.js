@@ -21,8 +21,6 @@ const Layout = ({ children }) => {
     }
   }, []);
 
-  console.log(inView);
-
   return (
     <div className="relative bg-navy min-h-screen scroll-smooth">
       <Head>
@@ -35,8 +33,10 @@ const Layout = ({ children }) => {
       <div
         ref={ref}
         className={
-          inView
+          inView && !open
             ? `transition-opacity duration-500 ease-in-out opacity-100 transform translate-y-0`
+            : inView && open
+            ? ``
             : `transition opacity-0 duration-1000 ease-in-out transform -translate-y-25 `
         }
       >
@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
 
       <main
         className={`${
-          open && "filter blur select-none"
+          open && "filter blur select-none overflow-y-hidden"
         }  flex flex-col justify-center px-[25px] sm:px-[50px] md:px-[100px] lg:mx-[100px]  2xl:mx-[180px]`}
       >
         {children}
